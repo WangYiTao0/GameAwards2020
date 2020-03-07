@@ -1,0 +1,4 @@
+#	UIConfig					
+#	Id		AssetName	UIGroupName	AllowMultiInstance	PauseCoveredUIForm
+#	int		string	string	bool	bool
+#	UI ID	Note	Resource Name	UIGroupName	isMultiInstance	isPaused

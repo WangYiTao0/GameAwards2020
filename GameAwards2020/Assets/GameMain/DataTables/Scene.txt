@@ -1,0 +1,4 @@
+#	Scene Config			
+#	Id		AssetName	BackgroundId
+#	int		string	int
+#	Scene ID	NOTE	Resource Name	BGM ID
