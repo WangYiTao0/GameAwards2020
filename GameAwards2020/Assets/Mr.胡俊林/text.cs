@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class text : MonoBehaviour
 {
+<<<<<<< HEAD
     Graphic.CsGraphicManager CS_Graphic;
     // AudioClipScript asd;
     CSSoundPokectManager asddd;
@@ -14,6 +15,15 @@ public class text : MonoBehaviour
       //  asd = GetComponent<AudioClipScript>();
         //asd.SetAudioClip(true);//loopand oneshot
         asddd = this.GetComponent<CSSoundPokectManager>();
+=======
+   // Graphic.CsGraphicManager CS_Graphic;
+    // AudioClipScript asd;
+    void Start()
+    {
+      //  CS_Graphic = this.GetComponent<Graphic.CsGraphicManager>();
+      //  asd = GetComponent<AudioClipScript>();
+        //asd.SetAudioClip(true);//loopand oneshot
+>>>>>>> 640b5b4... Merge pull request #5 from WangYiTao0/feature/胡俊林FirstBlood
     }
 
     // Update is called once per frame
@@ -21,6 +31,7 @@ public class text : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
+<<<<<<< HEAD
            CS_Graphic.Create(Graphic.Em2DType.Fade);
             asddd.OpenPokect();
         }
@@ -28,6 +39,14 @@ public class text : MonoBehaviour
         {
             //GameObject.Find("AudioManager").GetComponent<AudioManager>().ClearBGM();
             asddd.ClosePokect();
+=======
+            //  CS_Graphic.Create(Graphic.Em2DType.Fade);
+            Graphic.CSEffectOprate.CreateEffect(Effects.TYPE2D.FadeInOut);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Graphic.CSEffectOprate.CreateEffect(Effects.TYPE2D.ReadBar);
+>>>>>>> 640b5b4... Merge pull request #5 from WangYiTao0/feature/胡俊林FirstBlood
         }
     }
 }
