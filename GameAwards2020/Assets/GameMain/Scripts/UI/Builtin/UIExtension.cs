@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     public static class UIExtension
     {

@@ -3,7 +3,7 @@ using GameFramework.DataTable;
 using System;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     public static class EntityExtension
     {

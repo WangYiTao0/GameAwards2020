@@ -1,4 +1,4 @@
-﻿namespace GDT
+﻿namespace GameName
 {
     /// <summary>
     /// 画质等级

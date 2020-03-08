@@ -1,7 +1,7 @@
 ﻿using GameFramework;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     public static class LocalizationExtension
     {

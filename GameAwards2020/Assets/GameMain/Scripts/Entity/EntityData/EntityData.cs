@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 实体数据

@@ -1,7 +1,7 @@
 ﻿using GameFramework.DataTable;
 using System.Collections.Generic;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 界面声音配置表。

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// UGUI界面基类

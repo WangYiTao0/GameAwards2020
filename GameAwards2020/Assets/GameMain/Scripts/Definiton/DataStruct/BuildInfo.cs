@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 项目构建信息

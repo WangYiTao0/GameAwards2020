@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GDT
+namespace GameName
 {
     public static class WebUtility
     {

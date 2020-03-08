@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 画质模式配置

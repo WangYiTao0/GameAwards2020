@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// uGUI 界面组辅助器。

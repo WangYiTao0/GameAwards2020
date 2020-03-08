@@ -3,7 +3,7 @@ using GameFramework.DataTable;
 using GameFramework.Sound;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     public static class SoundExtension
     {

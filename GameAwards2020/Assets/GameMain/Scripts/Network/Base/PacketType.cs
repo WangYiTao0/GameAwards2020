@@ -1,4 +1,4 @@
-﻿namespace GDT
+﻿namespace GameName
 {
     /// <summary>
     /// 网络消息包类型

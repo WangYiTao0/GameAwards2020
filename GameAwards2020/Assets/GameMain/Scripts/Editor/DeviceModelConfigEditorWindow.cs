@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace GDT.Editor
+namespace GameName.Editor
 {
     public class DeviceModelConfigEditorWindow : EditorWindow
     {

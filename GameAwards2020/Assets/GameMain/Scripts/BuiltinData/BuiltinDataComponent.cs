@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 自定义数据组件

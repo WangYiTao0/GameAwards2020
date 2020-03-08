@@ -1,6 +1,6 @@
 ﻿using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 游戏入口。

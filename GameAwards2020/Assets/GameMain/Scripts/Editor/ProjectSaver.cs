@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace GDT.Editor
+namespace GameName.Editor
 {
     public static class ProjectSaver
     {

@@ -5,7 +5,7 @@ using GameFramework.Procedure;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
-namespace GDT
+namespace GameName
 {
 
     /// <summary>
@@ -51,6 +51,8 @@ namespace GDT
             gotoSceneId = procedureOwner.GetData<VarInt>(Constant.ProcedureData.NextSceneId).Value;
             IDataTable<DRScene> dtScene = GameEntry.DataTable.GetDataTable<DRScene>();
             DRScene drScene = dtScene.GetDataRow(gotoSceneId);
+
+
             if (drScene == null)
             {
                 Log.Warning("Can not load scene '{0}' from data table.", gotoSceneId.ToString());
@@ -83,6 +85,13 @@ namespace GDT
             //TODO：在这里根据切换到的场景编号进行对应的流程切换
             switch (gotoSceneId)
             {
+                case 1:
+                    ChangeState<ProcedureMenu>(procedureOwner);
+                    break;
+                case 2:
+                    ChangeState<ProcedureMainGame>(procedureOwner);
+                    break;
+
                 default:
                     break;
             }

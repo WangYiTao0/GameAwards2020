@@ -1,7 +1,7 @@
 ﻿using GameFramework;
 using GameFramework.Network;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 服务器发往客户端 的 心跳包处理器

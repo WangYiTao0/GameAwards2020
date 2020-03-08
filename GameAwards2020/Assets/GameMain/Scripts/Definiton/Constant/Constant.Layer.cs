@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GDT
+namespace GameName
 {
     public static partial class Constant
     {

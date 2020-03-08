@@ -1,7 +1,7 @@
 ﻿using ProtoBuf;
 using System;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 客户端发往服务器 的 心跳包

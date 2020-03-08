@@ -3,7 +3,7 @@ using System;
 using System.Xml;
 using UnityGameFramework.Runtime;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// XML 格式的本地化辅助器。

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GDT
+namespace GameName
 {
     /// <summary>
     /// 游戏入口。
