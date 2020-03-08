@@ -34,7 +34,6 @@ public class Read_Bar_Manager : MonoBehaviour
         if (blend > 0.0f)
         {
             blend -= Time.deltaTime * m_Speed_fadout;
-            Debug.Log(blend);
             BackgroundBar.color = new Color(1, 1, 1, blend);
             ReadBar.color = new Color(1, 1, 1, blend);
         }
