@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 2629512783929026255}
   - component: {fileID: 2629512783929026254}
   - component: {fileID: 2629512783929026253}
-  - component: {fileID: 2629512783929026249}
   m_Layer: 5
   m_Name: BarObjCanvas
   m_TagString: Untagged
@@ -247,19 +246,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2629512783929026249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2629512783929026252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4f003b8919c5943a60c404a6f21ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BackgroundBar: {fileID: 2629512783236189344}
-  ReadBar: {fileID: 2629512783310682387}
-  m_Speed: 0.5
-  m_Speed_fadout: 2
