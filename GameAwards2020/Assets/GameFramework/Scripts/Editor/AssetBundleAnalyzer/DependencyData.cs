@@ -1,15 +1,15 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using System.Collections.Generic;
 
 namespace UnityGameFramework.Editor.AssetBundleTools
 {
-    internal sealed class DependencyData
+    public sealed class DependencyData
     {
         private List<AssetBundle> m_DependencyAssetBundles;
         private List<Asset> m_DependencyAssets;

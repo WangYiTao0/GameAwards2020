@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -17,29 +17,28 @@ namespace UnityGameFramework.Editor
     internal sealed class BaseComponentInspector : GameFrameworkInspector
     {
         private const string NoneOptionName = "<None>";
-
-        private readonly float[] GameSpeed = new float[] { 0f, 0.25f, 0.5f, 1f, 1.5f, 2f, 4f, 8f };
-        private readonly string[] GameSpeedTexts = new string[] { "0x", "0.25x", "0.5x", "1x", "1.5x", "2x", "4x", "8x" };
+        private static readonly float[] GameSpeed = new float[] { 0f, 0.01f, 0.1f, 0.25f, 0.5f, 1f, 1.5f, 2f, 4f, 8f };
+        private static readonly string[] GameSpeedTexts = new string[] { "0x", "0.01x", "0.1x", "0.25x", "0.5x", "1x", "1.5x", "2x", "4x", "8x" };
 
         private SerializedProperty m_EditorResourceMode = null;
         private SerializedProperty m_EditorLanguage = null;
+        private SerializedProperty m_VersionHelperTypeName = null;
         private SerializedProperty m_LogHelperTypeName = null;
         private SerializedProperty m_ZipHelperTypeName = null;
         private SerializedProperty m_JsonHelperTypeName = null;
-        private SerializedProperty m_ProfilerHelperTypeName = null;
         private SerializedProperty m_FrameRate = null;
         private SerializedProperty m_GameSpeed = null;
         private SerializedProperty m_RunInBackground = null;
         private SerializedProperty m_NeverSleep = null;
 
+        private string[] m_VersionHelperTypeNames = null;
+        private int m_VersionHelperTypeNameIndex = 0;
         private string[] m_LogHelperTypeNames = null;
         private int m_LogHelperTypeNameIndex = 0;
         private string[] m_ZipHelperTypeNames = null;
         private int m_ZipHelperTypeNameIndex = 0;
         private string[] m_JsonHelperTypeNames = null;
         private int m_JsonHelperTypeNameIndex = 0;
-        private string[] m_ProfilerHelperTypeNames = null;
-        private int m_ProfilerHelperTypeNameIndex = 0;
 
         public override void OnInspectorGUI()
         {
@@ -63,6 +62,13 @@ namespace UnityGameFramework.Editor
                 {
                     EditorGUILayout.LabelField("Global Helpers", EditorStyles.boldLabel);
 
+                    int versionHelperSelectedIndex = EditorGUILayout.Popup("Version Helper", m_VersionHelperTypeNameIndex, m_VersionHelperTypeNames);
+                    if (versionHelperSelectedIndex != m_VersionHelperTypeNameIndex)
+                    {
+                        m_VersionHelperTypeNameIndex = versionHelperSelectedIndex;
+                        m_VersionHelperTypeName.stringValue = (versionHelperSelectedIndex <= 0 ? null : m_VersionHelperTypeNames[versionHelperSelectedIndex]);
+                    }
+
                     int logHelperSelectedIndex = EditorGUILayout.Popup("Log Helper", m_LogHelperTypeNameIndex, m_LogHelperTypeNames);
                     if (logHelperSelectedIndex != m_LogHelperTypeNameIndex)
                     {
@@ -82,13 +88,6 @@ namespace UnityGameFramework.Editor
                     {
                         m_JsonHelperTypeNameIndex = jsonHelperSelectedIndex;
                         m_JsonHelperTypeName.stringValue = (jsonHelperSelectedIndex <= 0 ? null : m_JsonHelperTypeNames[jsonHelperSelectedIndex]);
-                    }
-
-                    int profilerHelperSelectedIndex = EditorGUILayout.Popup("Profiler Helper", m_ProfilerHelperTypeNameIndex, m_ProfilerHelperTypeNames);
-                    if (profilerHelperSelectedIndex != m_ProfilerHelperTypeNameIndex)
-                    {
-                        m_ProfilerHelperTypeNameIndex = profilerHelperSelectedIndex;
-                        m_ProfilerHelperTypeName.stringValue = (profilerHelperSelectedIndex <= 0 ? null : m_ProfilerHelperTypeNames[profilerHelperSelectedIndex]);
                     }
                 }
                 EditorGUILayout.EndVertical();
@@ -111,7 +110,7 @@ namespace UnityGameFramework.Editor
             EditorGUILayout.BeginVertical("box");
             {
                 float gameSpeed = EditorGUILayout.Slider("Game Speed", m_GameSpeed.floatValue, 0f, 8f);
-                int selectedGameSpeed = GUILayout.SelectionGrid(GetSelectedGameSpeed(gameSpeed), GameSpeedTexts, 4);
+                int selectedGameSpeed = GUILayout.SelectionGrid(GetSelectedGameSpeed(gameSpeed), GameSpeedTexts, 5);
                 if (selectedGameSpeed >= 0)
                 {
                     gameSpeed = GetGameSpeed(selectedGameSpeed);
@@ -171,10 +170,10 @@ namespace UnityGameFramework.Editor
         {
             m_EditorResourceMode = serializedObject.FindProperty("m_EditorResourceMode");
             m_EditorLanguage = serializedObject.FindProperty("m_EditorLanguage");
+            m_VersionHelperTypeName = serializedObject.FindProperty("m_VersionHelperTypeName");
             m_LogHelperTypeName = serializedObject.FindProperty("m_LogHelperTypeName");
             m_ZipHelperTypeName = serializedObject.FindProperty("m_ZipHelperTypeName");
             m_JsonHelperTypeName = serializedObject.FindProperty("m_JsonHelperTypeName");
-            m_ProfilerHelperTypeName = serializedObject.FindProperty("m_ProfilerHelperTypeName");
             m_FrameRate = serializedObject.FindProperty("m_FrameRate");
             m_GameSpeed = serializedObject.FindProperty("m_GameSpeed");
             m_RunInBackground = serializedObject.FindProperty("m_RunInBackground");
@@ -185,9 +184,30 @@ namespace UnityGameFramework.Editor
 
         private void RefreshTypeNames()
         {
-            List<string> logHelperTypeNames = new List<string>();
-            logHelperTypeNames.Add(NoneOptionName);
-            logHelperTypeNames.AddRange(Type.GetTypeNames(typeof(Log.ILogHelper)));
+            List<string> versionHelperTypeNames = new List<string>
+            {
+                NoneOptionName
+            };
+
+            versionHelperTypeNames.AddRange(Type.GetTypeNames(typeof(Version.IVersionHelper)));
+            m_VersionHelperTypeNames = versionHelperTypeNames.ToArray();
+            m_VersionHelperTypeNameIndex = 0;
+            if (!string.IsNullOrEmpty(m_VersionHelperTypeName.stringValue))
+            {
+                m_VersionHelperTypeNameIndex = versionHelperTypeNames.IndexOf(m_VersionHelperTypeName.stringValue);
+                if (m_VersionHelperTypeNameIndex <= 0)
+                {
+                    m_VersionHelperTypeNameIndex = 0;
+                    m_VersionHelperTypeName.stringValue = null;
+                }
+            }
+
+            List<string> logHelperTypeNames = new List<string>
+            {
+                NoneOptionName
+            };
+
+            logHelperTypeNames.AddRange(Type.GetTypeNames(typeof(GameFrameworkLog.ILogHelper)));
             m_LogHelperTypeNames = logHelperTypeNames.ToArray();
             m_LogHelperTypeNameIndex = 0;
             if (!string.IsNullOrEmpty(m_LogHelperTypeName.stringValue))
@@ -200,8 +220,11 @@ namespace UnityGameFramework.Editor
                 }
             }
 
-            List<string> zipHelperTypeNames = new List<string>();
-            zipHelperTypeNames.Add(NoneOptionName);
+            List<string> zipHelperTypeNames = new List<string>
+            {
+                NoneOptionName
+            };
+
             zipHelperTypeNames.AddRange(Type.GetTypeNames(typeof(Utility.Zip.IZipHelper)));
             m_ZipHelperTypeNames = zipHelperTypeNames.ToArray();
             m_ZipHelperTypeNameIndex = 0;
@@ -215,9 +238,11 @@ namespace UnityGameFramework.Editor
                 }
             }
 
-            List<string> jsonHelperTypeNames = new List<string>();
-            jsonHelperTypeNames = new List<string>();
-            jsonHelperTypeNames.Add(NoneOptionName);
+            List<string> jsonHelperTypeNames = new List<string>
+            {
+                NoneOptionName
+            };
+
             jsonHelperTypeNames.AddRange(Type.GetTypeNames(typeof(Utility.Json.IJsonHelper)));
             m_JsonHelperTypeNames = jsonHelperTypeNames.ToArray();
             m_JsonHelperTypeNameIndex = 0;
@@ -228,21 +253,6 @@ namespace UnityGameFramework.Editor
                 {
                     m_JsonHelperTypeNameIndex = 0;
                     m_JsonHelperTypeName.stringValue = null;
-                }
-            }
-
-            List<string> profilerHelperTypeNames = new List<string>();
-            profilerHelperTypeNames.Add(NoneOptionName);
-            profilerHelperTypeNames.AddRange(Type.GetTypeNames(typeof(Utility.Profiler.IProfilerHelper)));
-            m_ProfilerHelperTypeNames = profilerHelperTypeNames.ToArray();
-            m_ProfilerHelperTypeNameIndex = 0;
-            if (!string.IsNullOrEmpty(m_ProfilerHelperTypeName.stringValue))
-            {
-                m_ProfilerHelperTypeNameIndex = profilerHelperTypeNames.IndexOf(m_ProfilerHelperTypeName.stringValue);
-                if (m_ProfilerHelperTypeNameIndex <= 0)
-                {
-                    m_ProfilerHelperTypeNameIndex = 0;
-                    m_ProfilerHelperTypeName.stringValue = null;
                 }
             }
 

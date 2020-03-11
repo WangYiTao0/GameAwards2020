@@ -1,4 +1,0 @@
-#	Entity Config		
-#	Id		AssetName
-#	int		string
-#	Entity ID	NOTE	Resource Name

@@ -1,27 +1,28 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using System;
 
 namespace UnityGameFramework.Runtime
 {
-    internal sealed class LoadDataTableInfo
+    internal sealed class LoadDataTableInfo : IReference
     {
-        private readonly Type m_DataRowType;
-        private readonly string m_DataTableName;
-        private readonly string m_DataTableNameInType;
-        private readonly object m_UserData;
+        private Type m_DataRowType;
+        private string m_DataTableName;
+        private string m_DataTableNameInType;
+        private object m_UserData;
 
-        public LoadDataTableInfo(Type dataRowType, string dataTableName, string dataTableNameInType, object userData)
+        public LoadDataTableInfo()
         {
-            m_DataRowType = dataRowType;
-            m_DataTableName = dataTableName;
-            m_DataTableNameInType = dataTableNameInType;
-            m_UserData = userData;
+            m_DataRowType = null;
+            m_DataTableName = null;
+            m_DataTableNameInType = null;
+            m_UserData = null;
         }
 
         public Type DataRowType
@@ -54,6 +55,24 @@ namespace UnityGameFramework.Runtime
             {
                 return m_UserData;
             }
+        }
+
+        public static LoadDataTableInfo Create(Type dataRowType, string dataTableName, string dataTableNameInType, object userData)
+        {
+            LoadDataTableInfo loadDataTableInfo = ReferencePool.Acquire<LoadDataTableInfo>();
+            loadDataTableInfo.m_DataRowType = dataRowType;
+            loadDataTableInfo.m_DataTableName = dataTableName;
+            loadDataTableInfo.m_DataTableNameInType = dataTableNameInType;
+            loadDataTableInfo.m_UserData = userData;
+            return loadDataTableInfo;
+        }
+
+        public void Clear()
+        {
+            m_DataRowType = null;
+            m_DataTableName = null;
+            m_DataTableNameInType = null;
+            m_UserData = null;
         }
     }
 }

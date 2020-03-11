@@ -1,21 +1,23 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
+
+using GameFramework;
 
 namespace UnityGameFramework.Runtime
 {
-    internal sealed class LoadConfigInfo
+    internal sealed class LoadConfigInfo : IReference
     {
-        private readonly string m_ConfigName;
-        private readonly object m_UserData;
+        private string m_ConfigName;
+        private object m_UserData;
 
-        public LoadConfigInfo(string configName, object userData)
+        public LoadConfigInfo()
         {
-            m_ConfigName = configName;
-            m_UserData = userData;
+            m_ConfigName = null;
+            m_UserData = null;
         }
 
         public string ConfigName
@@ -32,6 +34,20 @@ namespace UnityGameFramework.Runtime
             {
                 return m_UserData;
             }
+        }
+
+        public static LoadConfigInfo Create(string configName, object userData)
+        {
+            LoadConfigInfo loadConfigInfo = ReferencePool.Acquire<LoadConfigInfo>();
+            loadConfigInfo.m_ConfigName = configName;
+            loadConfigInfo.m_UserData = userData;
+            return loadConfigInfo;
+        }
+
+        public void Clear()
+        {
+            m_ConfigName = null;
+            m_UserData = null;
         }
     }
 }

@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 447378}
-  - component: {fileID: 11472694}
+  - 4: {fileID: 447378}
+  - 114: {fileID: 11472694}
   m_Layer: 0
   m_Name: FSM
   m_TagString: Untagged
@@ -21,10 +21,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 432002}
-  - component: {fileID: 11497722}
+  - 4: {fileID: 432002}
+  - 114: {fileID: 11497722}
   m_Layer: 0
   m_Name: Resource
   m_TagString: Untagged
@@ -37,10 +37,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 472962}
-  - component: {fileID: 11461470}
+  - 4: {fileID: 472962}
+  - 114: {fileID: 11461470}
   m_Layer: 0
   m_Name: Localization
   m_TagString: Untagged
@@ -53,10 +53,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 472238}
-  - component: {fileID: 11420954}
+  - 4: {fileID: 472238}
+  - 114: {fileID: 11420954}
   m_Layer: 0
   m_Name: Download
   m_TagString: Untagged
@@ -69,10 +69,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 449550}
-  - component: {fileID: 11494652}
+  - 4: {fileID: 449550}
+  - 114: {fileID: 11494652}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -85,11 +85,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 433714}
-  - component: {fileID: 11499388}
-  - component: {fileID: 11463816}
+  - 4: {fileID: 433714}
+  - 114: {fileID: 11499388}
+  - 114: {fileID: 11463816}
   m_Layer: 0
   m_Name: GameFramework
   m_TagString: Untagged
@@ -102,10 +102,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 404872}
-  - component: {fileID: 11402440}
+  - 4: {fileID: 404872}
+  - 114: {fileID: 11402440}
   m_Layer: 0
   m_Name: Debugger
   m_TagString: Untagged
@@ -118,10 +118,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 450964}
-  - component: {fileID: 11447244}
+  - 4: {fileID: 450964}
+  - 114: {fileID: 11447244}
   m_Layer: 0
   m_Name: Web Request
   m_TagString: Untagged
@@ -134,10 +134,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 490662}
-  - component: {fileID: 11459312}
+  - 4: {fileID: 490662}
+  - 114: {fileID: 11459312}
   m_Layer: 0
   m_Name: Setting
   m_TagString: Untagged
@@ -150,10 +150,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 436184}
-  - component: {fileID: 11485274}
+  - 4: {fileID: 436184}
+  - 114: {fileID: 11485274}
   m_Layer: 0
   m_Name: Config
   m_TagString: Untagged
@@ -166,10 +166,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 407686}
-  - component: {fileID: 11405216}
+  - 4: {fileID: 407686}
+  - 114: {fileID: 11405216}
   m_Layer: 0
   m_Name: Procedure
   m_TagString: Untagged
@@ -182,10 +182,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 463618}
-  - component: {fileID: 11413340}
+  - 4: {fileID: 463618}
+  - 114: {fileID: 11413340}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -198,10 +198,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 401796}
-  - component: {fileID: 11457798}
+  - 4: {fileID: 401796}
+  - 114: {fileID: 11457798}
   m_Layer: 0
   m_Name: Event
   m_TagString: Untagged
@@ -214,10 +214,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 431700}
-  - component: {fileID: 11402158}
+  - 4: {fileID: 431700}
+  - 114: {fileID: 11402158}
   m_Layer: 0
   m_Name: Object Pool
   m_TagString: Untagged
@@ -230,10 +230,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 430602}
-  - component: {fileID: 11454530}
+  - 4: {fileID: 430602}
+  - 114: {fileID: 11454530}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -246,10 +246,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 486648}
-  - component: {fileID: 11431030}
+  - 4: {fileID: 486648}
+  - 114: {fileID: 11431030}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -262,10 +262,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 455962}
-  - component: {fileID: 11447582}
+  - 4: {fileID: 455962}
+  - 114: {fileID: 11447582}
   m_Layer: 0
   m_Name: Data Node
   m_TagString: Untagged
@@ -278,10 +278,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 465000}
-  - component: {fileID: 11451924}
+  - 4: {fileID: 465000}
+  - 114: {fileID: 11451924}
   m_Layer: 0
   m_Name: Data Table
   m_TagString: Untagged
@@ -294,10 +294,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 449996}
-  - component: {fileID: 11418144}
+  - 4: {fileID: 449996}
+  - 114: {fileID: 11418144}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -310,10 +310,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 461836}
-  - component: {fileID: 11461162}
+  - 4: {fileID: 461836}
+  - 114: {fileID: 11461162}
   m_Layer: 0
   m_Name: Reference Pool
   m_TagString: Untagged
@@ -333,7 +333,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &404872
 Transform:
   m_ObjectHideFlags: 1
@@ -346,7 +345,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &407686
 Transform:
   m_ObjectHideFlags: 1
@@ -359,7 +357,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &430602
 Transform:
   m_ObjectHideFlags: 1
@@ -372,7 +369,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &431700
 Transform:
   m_ObjectHideFlags: 1
@@ -385,7 +381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &432002
 Transform:
   m_ObjectHideFlags: 1
@@ -398,7 +393,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &433714
 Transform:
   m_ObjectHideFlags: 1
@@ -430,7 +424,6 @@ Transform:
   - {fileID: 450964}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &436184
 Transform:
   m_ObjectHideFlags: 1
@@ -443,7 +436,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &447378
 Transform:
   m_ObjectHideFlags: 1
@@ -456,7 +448,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449550
 Transform:
   m_ObjectHideFlags: 1
@@ -469,7 +460,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &449996
 Transform:
   m_ObjectHideFlags: 1
@@ -482,7 +472,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &450964
 Transform:
   m_ObjectHideFlags: 1
@@ -495,7 +484,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &455962
 Transform:
   m_ObjectHideFlags: 1
@@ -508,7 +496,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &461836
 Transform:
   m_ObjectHideFlags: 1
@@ -521,7 +508,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &463618
 Transform:
   m_ObjectHideFlags: 1
@@ -534,7 +520,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &465000
 Transform:
   m_ObjectHideFlags: 1
@@ -547,7 +532,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &472238
 Transform:
   m_ObjectHideFlags: 1
@@ -560,7 +544,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &472962
 Transform:
   m_ObjectHideFlags: 1
@@ -573,7 +556,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &486648
 Transform:
   m_ObjectHideFlags: 1
@@ -586,7 +568,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490662
 Transform:
   m_ObjectHideFlags: 1
@@ -599,7 +580,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 433714}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11402158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,8 +607,7 @@ MonoBehaviour:
   m_ShowFullWindow: 0
   m_ConsoleWindow:
     m_LockScroll: 1
-    m_MaxLine: 300
-    m_DateTimeFormat: '[HH:mm:ss.fff] '
+    m_MaxLine: 100
     m_InfoFilter: 1
     m_WarningFilter: 1
     m_ErrorFilter: 1
@@ -669,8 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5533de69c4e5a4dabc7c23fce1fa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnablePlaySoundSuccessEvent: 1
-  m_EnablePlaySoundFailureEvent: 1
   m_EnablePlaySoundUpdateEvent: 0
   m_EnablePlaySoundDependencyAssetEvent: 0
   m_InstanceRoot: {fileID: 0}
@@ -693,12 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6242b052eb207b40b22e8fe77a315ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnableLoadSceneSuccessEvent: 1
-  m_EnableLoadSceneFailureEvent: 1
   m_EnableLoadSceneUpdateEvent: 1
   m_EnableLoadSceneDependencyAssetEvent: 1
-  m_EnableUnloadSceneSuccessEvent: 1
-  m_EnableUnloadSceneFailureEvent: 1
 --- !u!114 &11420954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,8 +738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54066418ab853614483ea44b531049f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnableLoadDataTableSuccessEvent: 1
-  m_EnableLoadDataTableFailureEvent: 1
   m_EnableLoadDataTableUpdateEvent: 0
   m_EnableLoadDataTableDependencyAssetEvent: 0
   m_DataTableHelperTypeName: UnityGameFramework.Runtime.DefaultDataTableHelper
@@ -832,6 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae4d40d7e878bc498492dc9c410d071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EnableStrictCheck: 0
 --- !u!114 &11461470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -843,8 +815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706e6317a59f61044b2805be79f6b284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnableLoadDictionarySuccessEvent: 1
-  m_EnableLoadDictionaryFailureEvent: 1
   m_EnableLoadDictionaryUpdateEvent: 0
   m_EnableLoadDictionaryDependencyAssetEvent: 0
   m_LocalizationHelperTypeName: UnityGameFramework.Runtime.DefaultLocalizationHelper
@@ -860,8 +830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ec20b78ec32048bfb6c0ff875d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EnableCachedAssets: 1
+  m_LoadAssetCountPerFrame: 1
   m_MinLoadAssetRandomDelaySeconds: 0
-  m_MaxLoadAssetRandomDelaySeconds: 1
+  m_MaxLoadAssetRandomDelaySeconds: 0
 --- !u!114 &11472694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -884,8 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e847b2b3e22e9b4792ca7ea6e1714c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnableLoadConfigSuccessEvent: 1
-  m_EnableLoadConfigFailureEvent: 1
   m_EnableLoadConfigUpdateEvent: 0
   m_EnableLoadConfigDependencyAssetEvent: 0
   m_ConfigHelperTypeName: UnityGameFramework.Runtime.DefaultConfigHelper
@@ -901,11 +871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58aa63e99dabf9c4fb61a9ec4ac4d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnableShowEntitySuccessEvent: 1
-  m_EnableShowEntityFailureEvent: 1
   m_EnableShowEntityUpdateEvent: 0
   m_EnableShowEntityDependencyAssetEvent: 0
-  m_EnableHideEntityCompleteEvent: 1
   m_InstanceRoot: {fileID: 0}
   m_EntityHelperTypeName: UnityGameFramework.Runtime.DefaultEntityHelper
   m_CustomEntityHelper: {fileID: 0}
@@ -935,6 +902,7 @@ MonoBehaviour:
   m_ResourceExpireTime: 60
   m_ResourcePriority: 20000
   m_UpdatePrefixUri: 
+  m_GenerateReadWriteListLength: 1048576
   m_UpdateRetryCount: 3
   m_InstanceRoot: {fileID: 0}
   m_ResourceHelperTypeName: UnityGameFramework.Runtime.DefaultResourceHelper
@@ -955,10 +923,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorResourceMode: 1
   m_EditorLanguage: 0
+  m_VersionHelperTypeName: UnityGameFramework.Runtime.DefaultVersionHelper
   m_LogHelperTypeName: UnityGameFramework.Runtime.DefaultLogHelper
   m_ZipHelperTypeName: UnityGameFramework.Runtime.DefaultZipHelper
   m_JsonHelperTypeName: UnityGameFramework.Runtime.DefaultJsonHelper
-  m_ProfilerHelperTypeName: UnityGameFramework.Runtime.DefaultProfilerHelper
   m_FrameRate: 30
   m_GameSpeed: 1
   m_RunInBackground: 1

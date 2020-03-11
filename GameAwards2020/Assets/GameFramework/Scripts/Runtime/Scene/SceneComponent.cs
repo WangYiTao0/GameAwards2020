@@ -1,13 +1,14 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
 using GameFramework.Resource;
 using GameFramework.Scene;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,22 +29,10 @@ namespace UnityGameFramework.Runtime
         private Scene m_GameFrameworkScene = default(Scene);
 
         [SerializeField]
-        private bool m_EnableLoadSceneSuccessEvent = true;
-
-        [SerializeField]
-        private bool m_EnableLoadSceneFailureEvent = true;
-
-        [SerializeField]
         private bool m_EnableLoadSceneUpdateEvent = true;
 
         [SerializeField]
         private bool m_EnableLoadSceneDependencyAssetEvent = true;
-
-        [SerializeField]
-        private bool m_EnableUnloadSceneSuccessEvent = true;
-
-        [SerializeField]
-        private bool m_EnableUnloadSceneFailureEvent = true;
 
         /// <summary>
         /// 获取当前场景主摄像机。
@@ -72,8 +61,17 @@ namespace UnityGameFramework.Runtime
 
             m_SceneManager.LoadSceneSuccess += OnLoadSceneSuccess;
             m_SceneManager.LoadSceneFailure += OnLoadSceneFailure;
-            m_SceneManager.LoadSceneUpdate += OnLoadSceneUpdate;
-            m_SceneManager.LoadSceneDependencyAsset += OnLoadSceneDependencyAsset;
+
+            if (m_EnableLoadSceneUpdateEvent)
+            {
+                m_SceneManager.LoadSceneUpdate += OnLoadSceneUpdate;
+            }
+
+            if (m_EnableLoadSceneDependencyAssetEvent)
+            {
+                m_SceneManager.LoadSceneDependencyAsset += OnLoadSceneDependencyAsset;
+            }
+
             m_SceneManager.UnloadSceneSuccess += OnUnloadSceneSuccess;
             m_SceneManager.UnloadSceneFailure += OnUnloadSceneFailure;
 
@@ -131,6 +129,15 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
+        /// 获取已加载场景的资源名称。
+        /// </summary>
+        /// <param name="results">已加载场景的资源名称。</param>
+        public void GetLoadedSceneAssetNames(List<string> results)
+        {
+            m_SceneManager.GetLoadedSceneAssetNames(results);
+        }
+
+        /// <summary>
         /// 获取场景是否正在加载。
         /// </summary>
         /// <param name="sceneAssetName">场景资源名称。</param>
@@ -150,6 +157,15 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
+        /// 获取正在加载场景的资源名称。
+        /// </summary>
+        /// <param name="results">正在加载场景的资源名称。</param>
+        public void GetLoadingSceneAssetNames(List<string> results)
+        {
+            m_SceneManager.GetLoadingSceneAssetNames(results);
+        }
+
+        /// <summary>
         /// 获取场景是否正在卸载。
         /// </summary>
         /// <param name="sceneAssetName">场景资源名称。</param>
@@ -166,6 +182,15 @@ namespace UnityGameFramework.Runtime
         public string[] GetUnloadingSceneAssetNames()
         {
             return m_SceneManager.GetUnloadingSceneAssetNames();
+        }
+
+        /// <summary>
+        /// 获取正在卸载场景的资源名称。
+        /// </summary>
+        /// <param name="results">正在卸载场景的资源名称。</param>
+        public void GetUnloadingSceneAssetNames(List<string> results)
+        {
+            m_SceneManager.GetUnloadingSceneAssetNames(results);
         }
 
         /// <summary>
@@ -205,6 +230,18 @@ namespace UnityGameFramework.Runtime
         /// <param name="userData">用户自定义数据。</param>
         public void LoadScene(string sceneAssetName, int priority, object userData)
         {
+            if (string.IsNullOrEmpty(sceneAssetName))
+            {
+                Log.Error("Scene asset name is invalid.");
+                return;
+            }
+
+            if (!sceneAssetName.StartsWith("Assets/") || !sceneAssetName.EndsWith(".unity"))
+            {
+                Log.Error("Scene asset name '{0}' is invalid.", sceneAssetName);
+                return;
+            }
+
             m_SceneManager.LoadScene(sceneAssetName, priority, userData);
         }
 
@@ -224,6 +261,18 @@ namespace UnityGameFramework.Runtime
         /// <param name="userData">用户自定义数据。</param>
         public void UnloadScene(string sceneAssetName, object userData)
         {
+            if (string.IsNullOrEmpty(sceneAssetName))
+            {
+                Log.Error("Scene asset name is invalid.");
+                return;
+            }
+
+            if (!sceneAssetName.StartsWith("Assets/") || !sceneAssetName.EndsWith(".unity"))
+            {
+                Log.Error("Scene asset name '{0}' is invalid.", sceneAssetName);
+                return;
+            }
+
             m_SceneManager.UnloadScene(sceneAssetName, userData);
         }
 
@@ -272,52 +321,35 @@ namespace UnityGameFramework.Runtime
                 SceneManager.SetActiveScene(scene);
             }
 
-            if (m_EnableLoadSceneSuccessEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<LoadSceneSuccessEventArgs>().Fill(e));
-            }
+            m_EventComponent.Fire(this, LoadSceneSuccessEventArgs.Create(e));
         }
 
         private void OnLoadSceneFailure(object sender, GameFramework.Scene.LoadSceneFailureEventArgs e)
         {
             Log.Warning("Load scene failure, scene asset name '{0}', error message '{1}'.", e.SceneAssetName, e.ErrorMessage);
-            if (m_EnableLoadSceneFailureEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<LoadSceneFailureEventArgs>().Fill(e));
-            }
+            m_EventComponent.Fire(this, LoadSceneFailureEventArgs.Create(e));
         }
 
         private void OnLoadSceneUpdate(object sender, GameFramework.Scene.LoadSceneUpdateEventArgs e)
         {
-            if (m_EnableLoadSceneUpdateEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<LoadSceneUpdateEventArgs>().Fill(e));
-            }
+            m_EventComponent.Fire(this, LoadSceneUpdateEventArgs.Create(e));
         }
 
         private void OnLoadSceneDependencyAsset(object sender, GameFramework.Scene.LoadSceneDependencyAssetEventArgs e)
         {
-            if (m_EnableLoadSceneDependencyAssetEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<LoadSceneDependencyAssetEventArgs>().Fill(e));
-            }
+            m_EventComponent.Fire(this, LoadSceneDependencyAssetEventArgs.Create(e));
         }
 
         private void OnUnloadSceneSuccess(object sender, GameFramework.Scene.UnloadSceneSuccessEventArgs e)
         {
-            if (m_EnableUnloadSceneSuccessEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<UnloadSceneSuccessEventArgs>().Fill(e));
-            }
+            m_MainCamera = Camera.main;
+            m_EventComponent.Fire(this, UnloadSceneSuccessEventArgs.Create(e));
         }
 
         private void OnUnloadSceneFailure(object sender, GameFramework.Scene.UnloadSceneFailureEventArgs e)
         {
             Log.Warning("Unload scene failure, scene asset name '{0}'.", e.SceneAssetName);
-            if (m_EnableUnloadSceneFailureEvent)
-            {
-                m_EventComponent.Fire(this, ReferencePool.Acquire<UnloadSceneFailureEventArgs>().Fill(e));
-            }
+            m_EventComponent.Fire(this, UnloadSceneFailureEventArgs.Create(e));
         }
     }
 }

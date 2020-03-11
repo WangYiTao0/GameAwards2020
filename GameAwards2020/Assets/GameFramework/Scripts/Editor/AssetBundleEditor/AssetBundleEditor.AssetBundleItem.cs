@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace UnityGameFramework.Editor.AssetBundleTools
 {
-    internal partial class AssetBundleEditor
+    internal sealed partial class AssetBundleEditor : EditorWindow
     {
         private sealed class AssetBundleItem
         {
@@ -58,7 +58,7 @@ namespace UnityGameFramework.Editor.AssetBundleTools
             {
                 get
                 {
-                    return (Folder.Folder == null ? Name : string.Format("{0}/{1}", Folder.FromRootPath, Name));
+                    return (Folder.Folder == null ? Name : Utility.Text.Format("{0}/{1}", Folder.FromRootPath, Name));
                 }
             }
 
@@ -78,8 +78,10 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                     {
                         case AssetBundleType.Asset:
                             return CachedAssetIcon;
+
                         case AssetBundleType.Scene:
                             return CachedSceneIcon;
+
                         default:
                             return CachedUnknownIcon;
                     }
@@ -92,7 +94,13 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 {
                     if (s_CachedUnknownIcon == null)
                     {
-                        s_CachedUnknownIcon = EditorGUIUtility.IconContent("Prefab Icon").image;
+                        string iconName = null;
+#if UNITY_2018_3_OR_NEWER
+                        iconName = "GameObject Icon";
+#else
+                        iconName = "Prefab Icon";
+#endif
+                        s_CachedUnknownIcon = GetIcon(iconName);
                     }
 
                     return s_CachedUnknownIcon;
@@ -105,7 +113,13 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 {
                     if (s_CachedAssetIcon == null)
                     {
-                        s_CachedAssetIcon = EditorGUIUtility.IconContent("PrefabNormal Icon").image;
+                        string iconName = null;
+#if UNITY_2018_3_OR_NEWER
+                        iconName = "Prefab Icon";
+#else
+                        iconName = "PrefabNormal Icon";
+#endif
+                        s_CachedAssetIcon = GetIcon(iconName);
                     }
 
                     return s_CachedAssetIcon;
@@ -118,11 +132,16 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 {
                     if (s_CachedSceneIcon == null)
                     {
-                        s_CachedSceneIcon = EditorGUIUtility.IconContent("SceneAsset Icon").image;
+                        s_CachedSceneIcon = GetIcon("SceneAsset Icon");
                     }
 
                     return s_CachedSceneIcon;
                 }
+            }
+
+            private static Texture GetIcon(string iconName)
+            {
+                return EditorGUIUtility.IconContent(iconName).image;
             }
         }
     }

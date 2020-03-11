@@ -1,4 +1,0 @@
-#	Music Config							
-#	Id		ResourceName	Priority	Loop	Volume	SpatialBlend	MaxDistance
-#	int		string	int	bool	float	float	float
-#	Sound ID	NOTE	ResourceName	Priority(default 0;-128~128)	isLooped	Volume(0~1)	SpatialBlend	MaxDistance

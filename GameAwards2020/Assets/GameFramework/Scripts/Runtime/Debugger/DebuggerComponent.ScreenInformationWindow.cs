@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace UnityGameFramework.Runtime
 {
-    public partial class DebuggerComponent
+    public sealed partial class DebuggerComponent : GameFrameworkComponent
     {
         private sealed class ScreenInformationWindow : ScrollableDebuggerWindowBase
         {
@@ -20,11 +20,14 @@ namespace UnityGameFramework.Runtime
                 GUILayout.BeginVertical("box");
                 {
                     DrawItem("Current Resolution", GetResolutionString(Screen.currentResolution));
-                    DrawItem("Screen Width", string.Format("{0} px / {1} in / {2} cm", Screen.width.ToString(), Utility.Converter.GetInchesFromPixels(Screen.width).ToString("F2"), Utility.Converter.GetCentimetersFromPixels(Screen.width).ToString("F2")));
-                    DrawItem("Screen Height", string.Format("{0} px / {1} in / {2} cm", Screen.height.ToString(), Utility.Converter.GetInchesFromPixels(Screen.height).ToString("F2"), Utility.Converter.GetCentimetersFromPixels(Screen.height).ToString("F2")));
+                    DrawItem("Screen Width", Utility.Text.Format("{0} px / {1} in / {2} cm", Screen.width.ToString(), Utility.Converter.GetInchesFromPixels(Screen.width).ToString("F2"), Utility.Converter.GetCentimetersFromPixels(Screen.width).ToString("F2")));
+                    DrawItem("Screen Height", Utility.Text.Format("{0} px / {1} in / {2} cm", Screen.height.ToString(), Utility.Converter.GetInchesFromPixels(Screen.height).ToString("F2"), Utility.Converter.GetCentimetersFromPixels(Screen.height).ToString("F2")));
                     DrawItem("Screen DPI", Screen.dpi.ToString("F2"));
                     DrawItem("Screen Orientation", Screen.orientation.ToString());
                     DrawItem("Is Full Screen", Screen.fullScreen.ToString());
+#if UNITY_2018_1_OR_NEWER
+                    DrawItem("Full Screen Mode", Screen.fullScreenMode.ToString());
+#endif
                     DrawItem("Sleep Timeout", GetSleepTimeoutDescription(Screen.sleepTimeout));
                     DrawItem("Cursor Visible", Cursor.visible.ToString());
                     DrawItem("Cursor Lock State", Cursor.lockState.ToString());
@@ -32,6 +35,9 @@ namespace UnityGameFramework.Runtime
                     DrawItem("Auto Landscape Right", Screen.autorotateToLandscapeRight.ToString());
                     DrawItem("Auto Portrait", Screen.autorotateToPortrait.ToString());
                     DrawItem("Auto Portrait Upside Down", Screen.autorotateToPortraitUpsideDown.ToString());
+#if UNITY_2017_2_OR_NEWER && !UNITY_2017_2_0
+                    DrawItem("Safe Area", Screen.safeArea.ToString());
+#endif
                     DrawItem("Support Resolutions", GetResolutionsString(Screen.resolutions));
                 }
                 GUILayout.EndVertical();
@@ -54,7 +60,7 @@ namespace UnityGameFramework.Runtime
 
             private string GetResolutionString(Resolution resolution)
             {
-                return string.Format("{0} x {1} @ {2}Hz", resolution.width.ToString(), resolution.height.ToString(), resolution.refreshRate.ToString());
+                return Utility.Text.Format("{0} x {1} @ {2}Hz", resolution.width.ToString(), resolution.height.ToString(), resolution.refreshRate.ToString());
             }
 
             private string GetResolutionsString(Resolution[] resolutions)

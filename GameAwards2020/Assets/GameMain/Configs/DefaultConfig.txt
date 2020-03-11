@@ -1,4 +1,0 @@
-#	Default Config		
-#	Config Name	Note	Config ID
-	Scene.Menu		1
-	Scene.MainGame		2

@@ -1,10 +1,11 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.Sound;
 using System;
 using System.Collections;
@@ -32,6 +33,17 @@ namespace UnityGameFramework.Runtime
             get
             {
                 return m_AudioSource.isPlaying;
+            }
+        }
+
+        /// <summary>
+        /// 获取声音长度。
+        /// </summary>
+        public override float Length
+        {
+            get
+            {
+                return m_AudioSource.clip != null ? m_AudioSource.clip.length : 0f;
             }
         }
 
@@ -304,7 +316,7 @@ namespace UnityGameFramework.Runtime
         /// 设置声音资源。
         /// </summary>
         /// <param name="soundAsset">声音资源。</param>
-        /// <returns>设置声音资源是否成功。</returns>
+        /// <returns>是否设置声音资源成功。</returns>
         public override bool SetSoundAsset(object soundAsset)
         {
             AudioClip audioClip = soundAsset as AudioClip;
@@ -332,7 +344,9 @@ namespace UnityGameFramework.Runtime
 
             if (m_ResetSoundAgentEventHandler != null)
             {
-                m_ResetSoundAgentEventHandler(this, new ResetSoundAgentEventArgs());
+                ResetSoundAgentEventArgs resetSoundAgentEventArgs = ResetSoundAgentEventArgs.Create();
+                m_ResetSoundAgentEventHandler(this, resetSoundAgentEventArgs);
+                ReferencePool.Release(resetSoundAgentEventArgs);
             }
         }
 
@@ -357,7 +371,9 @@ namespace UnityGameFramework.Runtime
         {
             if (!IsPlaying && m_AudioSource.clip != null && m_ResetSoundAgentEventHandler != null)
             {
-                m_ResetSoundAgentEventHandler(this, new ResetSoundAgentEventArgs());
+                ResetSoundAgentEventArgs resetSoundAgentEventArgs = ResetSoundAgentEventArgs.Create();
+                m_ResetSoundAgentEventHandler(this, resetSoundAgentEventArgs);
+                ReferencePool.Release(resetSoundAgentEventArgs);
                 return;
             }
 
@@ -369,7 +385,7 @@ namespace UnityGameFramework.Runtime
 
         private void UpdateAgentPosition()
         {
-            if (m_BindingEntityLogic.IsAvailable)
+            if (m_BindingEntityLogic.Available)
             {
                 m_CachedTransform.position = m_BindingEntityLogic.CachedTransform.position;
                 return;
@@ -377,7 +393,9 @@ namespace UnityGameFramework.Runtime
 
             if (m_ResetSoundAgentEventHandler != null)
             {
-                m_ResetSoundAgentEventHandler(this, new ResetSoundAgentEventArgs());
+                ResetSoundAgentEventArgs resetSoundAgentEventArgs = ResetSoundAgentEventArgs.Create();
+                m_ResetSoundAgentEventHandler(this, resetSoundAgentEventArgs);
+                ReferencePool.Release(resetSoundAgentEventArgs);
             }
         }
 

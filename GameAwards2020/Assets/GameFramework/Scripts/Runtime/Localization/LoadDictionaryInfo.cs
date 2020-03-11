@@ -1,21 +1,23 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
+
+using GameFramework;
 
 namespace UnityGameFramework.Runtime
 {
-    internal sealed class LoadDictionaryInfo
+    internal sealed class LoadDictionaryInfo : IReference
     {
-        private readonly string m_DictionaryName;
-        private readonly object m_UserData;
+        private string m_DictionaryName;
+        private object m_UserData;
 
-        public LoadDictionaryInfo(string dictionaryName, object userData)
+        public LoadDictionaryInfo()
         {
-            m_DictionaryName = dictionaryName;
-            m_UserData = userData;
+            m_DictionaryName = null;
+            m_UserData = null;
         }
 
         public string DictionaryName
@@ -32,6 +34,20 @@ namespace UnityGameFramework.Runtime
             {
                 return m_UserData;
             }
+        }
+
+        public static LoadDictionaryInfo Create(string dictionaryName, object userData)
+        {
+            LoadDictionaryInfo loadDictionaryInfo = ReferencePool.Acquire<LoadDictionaryInfo>();
+            loadDictionaryInfo.m_DictionaryName = dictionaryName;
+            loadDictionaryInfo.m_UserData = userData;
+            return loadDictionaryInfo;
+        }
+
+        public void Clear()
+        {
+            m_DictionaryName = null;
+            m_UserData = null;
         }
     }
 }

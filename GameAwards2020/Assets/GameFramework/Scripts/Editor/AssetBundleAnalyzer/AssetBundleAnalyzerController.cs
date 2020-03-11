@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace UnityGameFramework.Editor.AssetBundleTools
 {
-    internal sealed partial class AssetBundleAnalyzerController
+    public sealed partial class AssetBundleAnalyzerController
     {
         private readonly AssetBundleCollection m_AssetBundleCollection;
 
@@ -25,7 +25,6 @@ namespace UnityGameFramework.Editor.AssetBundleTools
         public AssetBundleAnalyzerController()
             : this(null)
         {
-
         }
 
         public AssetBundleAnalyzerController(AssetBundleCollection assetBundleCollection)
@@ -107,7 +106,7 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 string assetName = assets[i].Name;
                 if (string.IsNullOrEmpty(assetName))
                 {
-                    Debug.LogWarning(string.Format("Can not find asset by guid '{0}'.", assets[i].Guid));
+                    Debug.LogWarning(Utility.Text.Format("Can not find asset by guid '{0}'.", assets[i].Guid));
                     continue;
                 }
 
@@ -145,14 +144,13 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                     continue;
                 }
 
-
                 if (dependencyAssetName.EndsWith(".unity"))
                 {
                     // 忽略对场景的依赖
                     continue;
                 }
 
-                Stamp stamp = new Stamp(assetName, dependencyAssetName);
+                Stamp stamp = new Stamp(hostAsset.Name, dependencyAssetName);
                 if (m_AnalyzedStamps.Contains(stamp))
                 {
                     continue;
@@ -163,7 +161,7 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 string guid = AssetDatabase.AssetPathToGUID(dependencyAssetName);
                 if (string.IsNullOrEmpty(guid))
                 {
-                    Debug.LogWarning(string.Format("Can not find guid by asset '{0}'.", dependencyAssetName));
+                    Debug.LogWarning(Utility.Text.Format("Can not find guid by asset '{0}'.", dependencyAssetName));
                     continue;
                 }
 
@@ -210,27 +208,35 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 case AssetsOrder.AssetNameAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Key);
                     break;
+
                 case AssetsOrder.AssetNameDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Key);
                     break;
+
                 case AssetsOrder.DependencyAssetBundleCountAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Value.DependencyAssetBundleCount);
                     break;
+
                 case AssetsOrder.DependencyAssetBundleCountDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Value.DependencyAssetBundleCount);
                     break;
+
                 case AssetsOrder.DependencyAssetCountAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Value.DependencyAssetCount);
                     break;
+
                 case AssetsOrder.DependencyAssetCountDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Value.DependencyAssetCount);
                     break;
+
                 case AssetsOrder.ScatteredDependencyAssetCountAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Value.ScatteredDependencyAssetCount);
                     break;
+
                 case AssetsOrder.ScatteredDependencyAssetCountDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Value.ScatteredDependencyAssetCount);
                     break;
+
                 default:
                     orderedResult = filteredResult;
                     break;
@@ -265,15 +271,19 @@ namespace UnityGameFramework.Editor.AssetBundleTools
                 case ScatteredAssetsOrder.AssetNameAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Key);
                     break;
+
                 case ScatteredAssetsOrder.AssetNameDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Key);
                     break;
+
                 case ScatteredAssetsOrder.HostAssetCountAsc:
                     orderedResult = filteredResult.OrderBy(pair => pair.Value.Count);
                     break;
+
                 case ScatteredAssetsOrder.HostAssetCountDesc:
                     orderedResult = filteredResult.OrderByDescending(pair => pair.Value.Count);
                     break;
+
                 default:
                     orderedResult = filteredResult;
                     break;

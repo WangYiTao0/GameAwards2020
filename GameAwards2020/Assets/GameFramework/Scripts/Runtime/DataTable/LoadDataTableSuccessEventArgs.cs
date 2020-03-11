@@ -1,10 +1,11 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.Event;
 using System;
 
@@ -19,6 +20,19 @@ namespace UnityGameFramework.Runtime
         /// 加载数据表成功事件编号。
         /// </summary>
         public static readonly int EventId = typeof(LoadDataTableSuccessEventArgs).GetHashCode();
+
+        /// <summary>
+        /// 初始化加载数据表成功事件的新实例。
+        /// </summary>
+        public LoadDataTableSuccessEventArgs()
+        {
+            DataRowType = null;
+            DataTableName = null;
+            DataTableAssetName = null;
+            LoadType = LoadType.Text;
+            Duration = 0f;
+            UserData = null;
+        }
 
         /// <summary>
         /// 获取加载数据表成功事件编号。
@@ -59,6 +73,15 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
+        /// 获取数据表加载方式。
+        /// </summary>
+        public LoadType LoadType
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// 获取加载持续时间。
         /// </summary>
         public float Duration
@@ -77,32 +100,35 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
+        /// 创建加载数据表成功事件。
+        /// </summary>
+        /// <param name="e">内部事件。</param>
+        /// <returns>创建的加载数据表成功事件。</returns>
+        public static LoadDataTableSuccessEventArgs Create(GameFramework.DataTable.LoadDataTableSuccessEventArgs e)
+        {
+            LoadDataTableInfo loadDataTableInfo = (LoadDataTableInfo)e.UserData;
+            LoadDataTableSuccessEventArgs loadDataTableSuccessEventArgs = ReferencePool.Acquire<LoadDataTableSuccessEventArgs>();
+            loadDataTableSuccessEventArgs.DataRowType = loadDataTableInfo.DataRowType;
+            loadDataTableSuccessEventArgs.DataTableName = loadDataTableInfo.DataTableName;
+            loadDataTableSuccessEventArgs.DataTableAssetName = e.DataTableAssetName;
+            loadDataTableSuccessEventArgs.LoadType = e.LoadType;
+            loadDataTableSuccessEventArgs.Duration = e.Duration;
+            loadDataTableSuccessEventArgs.UserData = loadDataTableInfo.UserData;
+            ReferencePool.Release(loadDataTableInfo);
+            return loadDataTableSuccessEventArgs;
+        }
+
+        /// <summary>
         /// 清理加载数据表成功事件。
         /// </summary>
         public override void Clear()
         {
-            DataRowType = default(Type);
-            DataTableName = default(string);
-            DataTableAssetName = default(string);
-            Duration = default(float);
-            UserData = default(object);
-        }
-
-        /// <summary>
-        /// 填充加载数据表成功事件。
-        /// </summary>
-        /// <param name="e">内部事件。</param>
-        /// <returns>加载数据表成功事件。</returns>
-        public LoadDataTableSuccessEventArgs Fill(GameFramework.DataTable.LoadDataTableSuccessEventArgs e)
-        {
-            LoadDataTableInfo loadDataTableInfo = (LoadDataTableInfo)e.UserData;
-            DataRowType = loadDataTableInfo.DataRowType;
-            DataTableName = loadDataTableInfo.DataTableName;
-            DataTableAssetName = e.DataTableAssetName;
-            Duration = e.Duration;
-            UserData = loadDataTableInfo.UserData;
-
-            return this;
+            DataRowType = null;
+            DataTableName = null;
+            DataTableAssetName = null;
+            LoadType = LoadType.Text;
+            Duration = 0f;
+            UserData = null;
         }
     }
 }

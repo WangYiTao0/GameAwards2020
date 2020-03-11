@@ -1,13 +1,16 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework.Resource;
 using System.Collections;
 using UnityEngine;
+#if UNITY_5_4_OR_NEWER
+using UnityEngine.Networking;
+#endif
 using UnityEngine.SceneManagement;
 
 namespace UnityGameFramework.Runtime
@@ -76,8 +79,8 @@ namespace UnityGameFramework.Runtime
             }
 
             /* Unity 当前 Resources.UnloadAsset 在 iOS 设备上会导致一些诡异问题，先不用这部分
-            DummySceneObject dummySceneObject = objectToRelease as DummySceneObject;
-            if (dummySceneObject != null)
+            SceneAsset sceneAsset = objectToRelease as SceneAsset;
+            if (sceneAsset != null)
             {
                 return;
             }
@@ -101,17 +104,38 @@ namespace UnityGameFramework.Runtime
 
         private void Start()
         {
-
         }
 
         private IEnumerator LoadBytesCo(string fileUri, LoadBytesCallback loadBytesCallback)
         {
+            byte[] bytes = null;
+            string errorMessage = null;
+
+#if UNITY_5_4_OR_NEWER
+            UnityWebRequest unityWebRequest = UnityWebRequest.Get(fileUri);
+#if UNITY_2017_2_OR_NEWER
+            yield return unityWebRequest.SendWebRequest();
+#else
+            yield return unityWebRequest.Send();
+#endif
+
+            bool isError = false;
+#if UNITY_2017_1_OR_NEWER
+            isError = unityWebRequest.isNetworkError || unityWebRequest.isHttpError;
+#else
+            isError = unityWebRequest.isError;
+#endif
+            bytes = unityWebRequest.downloadHandler.data;
+            errorMessage = isError ? unityWebRequest.error : null;
+            unityWebRequest.Dispose();
+#else
             WWW www = new WWW(fileUri);
             yield return www;
 
-            byte[] bytes = www.bytes;
-            string errorMessage = www.error;
+            bytes = www.bytes;
+            errorMessage = www.error;
             www.Dispose();
+#endif
 
             if (loadBytesCallback != null)
             {

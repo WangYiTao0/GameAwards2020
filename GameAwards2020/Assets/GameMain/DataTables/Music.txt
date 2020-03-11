@@ -1,4 +1,0 @@
-#	Music Config		
-#	Id		AssetName
-#	int		string
-#	Music ID	NOTE	Resource Name

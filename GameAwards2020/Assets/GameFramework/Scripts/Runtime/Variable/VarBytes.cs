@@ -1,8 +1,8 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
 using GameFramework;
@@ -14,13 +14,11 @@ namespace UnityGameFramework.Runtime
     /// </summary>
     public sealed class VarBytes : Variable<byte[]>
     {
-
         /// <summary>
         /// 初始化 byte[] 变量类的新实例。
         /// </summary>
         public VarBytes()
         {
-
         }
 
         /// <summary>
@@ -30,7 +28,6 @@ namespace UnityGameFramework.Runtime
         public VarBytes(byte[] value)
             : base(value)
         {
-
         }
 
         /// <summary>
@@ -46,7 +43,7 @@ namespace UnityGameFramework.Runtime
         /// 从 byte[] 变量类到 byte[] 的隐式转换。
         /// </summary>
         /// <param name="value">值。</param>
-        public static implicit operator byte[] (VarBytes value)
+        public static implicit operator byte[](VarBytes value)
         {
             return value.Value;
         }

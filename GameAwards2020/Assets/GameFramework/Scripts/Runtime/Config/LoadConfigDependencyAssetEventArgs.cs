@@ -1,26 +1,40 @@
 ﻿//------------------------------------------------------------
-// Game Framework v3.x
-// Copyright © 2013-2018 Jiang Yin. All rights reserved.
-// Homepage: http://gameframework.cn/
-// Feedback: mailto:jiangyin@gameframework.cn
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.Event;
 
 namespace UnityGameFramework.Runtime
 {
     /// <summary>
-    /// 加载配置时加载依赖资源事件。
+    /// 加载全局配置时加载依赖资源事件。
     /// </summary>
     public sealed class LoadConfigDependencyAssetEventArgs : GameEventArgs
     {
         /// <summary>
-        /// 加载配置失败事件编号。
+        /// 加载全局配置失败事件编号。
         /// </summary>
         public static readonly int EventId = typeof(LoadConfigDependencyAssetEventArgs).GetHashCode();
 
         /// <summary>
-        /// 获取加载配置失败事件编号。
+        /// 初始化加载全局配置时加载依赖资源事件的新实例。
+        /// </summary>
+        public LoadConfigDependencyAssetEventArgs()
+        {
+            ConfigName = null;
+            ConfigAssetName = null;
+            DependencyAssetName = null;
+            LoadedCount = 0;
+            TotalCount = 0;
+            UserData = null;
+        }
+
+        /// <summary>
+        /// 获取加载全局配置失败事件编号。
         /// </summary>
         public override int Id
         {
@@ -31,7 +45,7 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 获取配置名称。
+        /// 获取全局配置名称。
         /// </summary>
         public string ConfigName
         {
@@ -40,7 +54,7 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 获取配置资源名称。
+        /// 获取全局配置资源名称。
         /// </summary>
         public string ConfigAssetName
         {
@@ -85,34 +99,34 @@ namespace UnityGameFramework.Runtime
         }
 
         /// <summary>
-        /// 清理加载配置时加载依赖资源事件。
+        /// 创建加载全局配置时加载依赖资源事件。
         /// </summary>
-        public override void Clear()
+        /// <param name="e">内部事件。</param>
+        /// <returns>创建的加载全局配置时加载依赖资源事件。</returns>
+        public static LoadConfigDependencyAssetEventArgs Create(GameFramework.Config.LoadConfigDependencyAssetEventArgs e)
         {
-            ConfigName = default(string);
-            ConfigAssetName = default(string);
-            DependencyAssetName = default(string);
-            LoadedCount = default(int);
-            TotalCount = default(int);
-            UserData = default(object);
+            LoadConfigInfo loadConfigInfo = (LoadConfigInfo)e.UserData;
+            LoadConfigDependencyAssetEventArgs loadConfigDependencyAssetEventArgs = ReferencePool.Acquire<LoadConfigDependencyAssetEventArgs>();
+            loadConfigDependencyAssetEventArgs.ConfigName = loadConfigInfo.ConfigName;
+            loadConfigDependencyAssetEventArgs.ConfigAssetName = e.ConfigAssetName;
+            loadConfigDependencyAssetEventArgs.DependencyAssetName = e.DependencyAssetName;
+            loadConfigDependencyAssetEventArgs.LoadedCount = e.LoadedCount;
+            loadConfigDependencyAssetEventArgs.TotalCount = e.TotalCount;
+            loadConfigDependencyAssetEventArgs.UserData = loadConfigInfo.UserData;
+            return loadConfigDependencyAssetEventArgs;
         }
 
         /// <summary>
-        /// 填充加载配置时加载依赖资源事件。
+        /// 清理加载全局配置时加载依赖资源事件。
         /// </summary>
-        /// <param name="e">内部事件。</param>
-        /// <returns>加载配置时加载依赖资源事件。</returns>
-        public LoadConfigDependencyAssetEventArgs Fill(GameFramework.Config.LoadConfigDependencyAssetEventArgs e)
+        public override void Clear()
         {
-            LoadConfigInfo loadConfigInfo = (LoadConfigInfo)e.UserData;
-            ConfigName = loadConfigInfo.ConfigName;
-            ConfigAssetName = e.ConfigAssetName;
-            DependencyAssetName = e.DependencyAssetName;
-            LoadedCount = e.LoadedCount;
-            TotalCount = e.TotalCount;
-            UserData = loadConfigInfo.UserData;
-
-            return this;
+            ConfigName = null;
+            ConfigAssetName = null;
+            DependencyAssetName = null;
+            LoadedCount = 0;
+            TotalCount = 0;
+            UserData = null;
         }
     }
 }

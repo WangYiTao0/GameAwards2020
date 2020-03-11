@@ -1,6 +1,0 @@
-#	Scene Config			
-#	Id		AssetName	BackgroundId
-#	int		string	int
-#	Scene ID	NOTE	Resource Name	BGM ID
-	1		Menu	0
-	2		MainGame	0
