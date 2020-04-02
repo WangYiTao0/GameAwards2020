@@ -19,19 +19,12 @@ namespace GameName
     {
         public static readonly string[] DataTableNames = new string[]
         {
-            "Test", // 这是个测试资源，并没有使用
-
-            "Aircraft",
-            "Armor",
-            "Asteroid",
             "Entity",
             "Music",
             "Scene",
             "Sound",
-            "Thruster",
             "UIForm",
             "UISound",
-            "Weapon",
         };
 
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();
@@ -85,6 +78,7 @@ namespace GameName
                 }
             }
 
+            // TODO：这里开始，切换到你的场景，场景编号可在DefaultConfig中配置
             procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Menu"));
             ChangeState<ProcedureChangeScene>(procedureOwner);
         }
@@ -110,7 +104,7 @@ namespace GameName
         private void LoadConfig(string configName)
         {
             m_LoadedFlag.Add(Utility.Text.Format("Config.{0}", configName), false);
-            //GameEntry.Config.LoadConfig(configName, LoadType.Bytes, this);
+            GameEntry.Config.LoadConfig(configName, LoadType.Bytes, this);
         }
 
         private void LoadDataTable(string dataTableName)

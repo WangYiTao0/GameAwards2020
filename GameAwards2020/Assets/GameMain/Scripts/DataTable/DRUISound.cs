@@ -1,6 +1,11 @@
 ﻿//------------------------------------------------------------
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
+//------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2019-03-13 17:02:41.470
+// 生成时间：2020-04-02 12:23:28.413
 //------------------------------------------------------------
 
 using GameFramework;
@@ -14,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace GameName
 {
     /// <summary>
-    /// 声音配置表。
+    /// 界面声音配置表。
     /// </summary>
     public class DRUISound : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取声音编号。
+        /// 获取界面声音编号。
         /// </summary>
         public override int Id
         {
@@ -60,7 +65,7 @@ namespace GameName
 
         public override bool ParseDataRow(GameFrameworkSegment<string> dataRowSegment)
         {
-            //示例代码，正式项目使用时请调整此处的生成代码，以处理 GCAlloc 问题！
+            // Star Force 示例代码，正式项目使用时请调整此处的生成代码，以处理 GCAlloc 问题！
             string[] columnTexts = dataRowSegment.Source.Substring(dataRowSegment.Offset, dataRowSegment.Length).Split(DataTableExtension.DataSplitSeparators);
             for (int i = 0; i < columnTexts.Length; i++)
             {
@@ -81,7 +86,7 @@ namespace GameName
 
         public override bool ParseDataRow(GameFrameworkSegment<byte[]> dataRowSegment)
         {
-            //示例代码，正式项目使用时请调整此处的生成代码，以处理 GCAlloc 问题！
+            // Star Force 示例代码，正式项目使用时请调整此处的生成代码，以处理 GCAlloc 问题！
             using (MemoryStream memoryStream = new MemoryStream(dataRowSegment.Source, dataRowSegment.Offset, dataRowSegment.Length, false))
             {
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))

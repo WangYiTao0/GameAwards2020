@@ -17,8 +17,16 @@ namespace GameName
         private const int MenuSceneId = 1;
 
         private bool m_ChangeToMenu = false;
+
+        /// <summary>
+        /// 要切换目标场景ID
+        /// </summary>
+        private int gotoSceneId = 0;
+
         private bool m_IsChangeSceneComplete = false;
         private int m_BackgroundMusicId = 0;
+
+
 
         public override bool UseNativeDialog
         {
@@ -90,14 +98,29 @@ namespace GameName
                 return;
             }
 
-            if (m_ChangeToMenu)
+            //TODO：在这里根据切换到的场景编号进行对应的流程切换
+            //根据切换到的目标场景ID进行对应的流程切换
+            switch (gotoSceneId)
             {
-                ChangeState<ProcedureMenu>(procedureOwner);
+                case 1:
+                    ChangeState<ProcedureMenu>(procedureOwner);
+                    break;
+                case 2:
+                    ChangeState<ProcedureMain>(procedureOwner);
+                    break;
+
+                default:
+                    break;
             }
-            else
-            {
-                ChangeState<ProcedureMain>(procedureOwner);
-            }
+
+            //if (m_ChangeToMenu)
+            //{
+            //    ChangeState<ProcedureMenu>(procedureOwner);
+            //}
+            //else
+            //{
+            //    ChangeState<ProcedureMain>(procedureOwner);
+            //}
         }
 
         private void OnLoadSceneSuccess(object sender, GameEventArgs e)
