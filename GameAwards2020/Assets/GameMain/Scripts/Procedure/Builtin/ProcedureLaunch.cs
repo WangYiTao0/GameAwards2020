@@ -1,6 +1,13 @@
-﻿using GameFramework.Localization;
-using GameFramework.Procedure;
+﻿//------------------------------------------------------------
+// Game Framework
+// Copyright © 2013-2020 Jiang Yin. All rights reserved.
+// Homepage: https://gameframework.cn/
+// Feedback: mailto:ellan@gameframework.cn
+//------------------------------------------------------------
+
+using GameFramework.Localization;
 using System;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
@@ -8,6 +15,14 @@ namespace GameName
 {
     public class ProcedureLaunch : ProcedureBase
     {
+        public override bool UseNativeDialog
+        {
+            get
+            {
+                return true;
+            }
+        }
+
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
@@ -35,6 +50,8 @@ namespace GameName
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+
+            ChangeState<ProcedureSplash>(procedureOwner);
         }
 
         private void InitLanguageSettings()
@@ -55,7 +72,6 @@ namespace GameName
                 }
                 catch
                 {
-
                 }
             }
 
@@ -90,15 +106,19 @@ namespace GameName
                 case Language.English:
                     currentVariant = "en-us";
                     break;
+
                 case Language.ChineseSimplified:
                     currentVariant = "zh-cn";
                     break;
+
                 case Language.ChineseTraditional:
                     currentVariant = "zh-tw";
                     break;
+
                 case Language.Korean:
                     currentVariant = "ko-kr";
                     break;
+
                 default:
                     currentVariant = "zh-cn";
                     break;
