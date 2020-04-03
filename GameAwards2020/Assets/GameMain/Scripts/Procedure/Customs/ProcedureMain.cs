@@ -30,6 +30,7 @@ namespace GameName
             GameFrameworkLog.Info("OnEnter ProcedureMain");
             GameEntry.Entity.ShowPlayer(new PlayerData(GameEntry.Entity.GenerateSerialId(), 1));
             GameEntry.Entity.ShowTerrain(new TerrainData(GameEntry.Entity.GenerateSerialId(), 2));
+            GameEntry.Entity.ShowSoundItem(new SoundItemData(GameEntry.Entity.GenerateSerialId(), 3));
             GameEntry.Entity.ShowCamera(new CameraData(GameEntry.Entity.GenerateSerialId(), 4));
             GameEntry.Entity.ShowStartPoint(new StartPointData(GameEntry.Entity.GenerateSerialId(), 5));
             GameEntry.Entity.ShowEndPoint(new EndPointData(GameEntry.Entity.GenerateSerialId(), 6));

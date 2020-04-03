@@ -99,5 +99,10 @@ namespace GameName
         {
             entityComponent.ShowEntity(typeof(EndPoint), "EndPoint", Constant.AssetPriority.EndPointAsset, data);
         }
+
+        public static void ShowSoundItem(this EntityComponent entityComponent, SoundItemData data)
+        {
+            entityComponent.ShowEntity(typeof(SoundItem), "SoundItem", Constant.AssetPriority.SoundItemAsset, data);
+        }
     }
 }
