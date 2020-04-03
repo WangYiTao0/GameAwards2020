@@ -7,6 +7,7 @@
 
 using GameFramework;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
@@ -22,16 +23,23 @@ namespace GameName
             }
         }
 
-
+        private int m_ScoreFormId = -1;
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
             GameFrameworkLog.Info("OnEnter ProcedureMain");
+
+            m_ScoreFormId = GameEntry.UI.OpenUIForm(UIFormId.ScoreForm).Value;
+
+            //GameEntry.Entity.ShowCamera(new CameraData(GameEntry.Entity.GenerateSerialId(), 4));
             GameEntry.Entity.ShowPlayer(new PlayerData(GameEntry.Entity.GenerateSerialId(), 1));
             GameEntry.Entity.ShowTerrain(new TerrainData(GameEntry.Entity.GenerateSerialId(), 2));
-            GameEntry.Entity.ShowSoundItem(new SoundItemData(GameEntry.Entity.GenerateSerialId(), 3));
-            GameEntry.Entity.ShowCamera(new CameraData(GameEntry.Entity.GenerateSerialId(), 4));
+
+            for (int i = 0; i < 10; i++)
+            {
+                GameEntry.Entity.ShowSoundItem(new SoundItemData(GameEntry.Entity.GenerateSerialId(), 3,new Vector3(Random.Range(-5f, 5f), 1, Random.Range(-5f, 5f))));
+            }
             GameEntry.Entity.ShowStartPoint(new StartPointData(GameEntry.Entity.GenerateSerialId(), 5));
             GameEntry.Entity.ShowEndPoint(new EndPointData(GameEntry.Entity.GenerateSerialId(), 6));
         }
@@ -42,6 +50,7 @@ namespace GameName
             base.OnLeave(procedureOwner, isShutdown);
 
 
+            GameEntry.UI.CloseUIForm(m_ScoreFormId);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)

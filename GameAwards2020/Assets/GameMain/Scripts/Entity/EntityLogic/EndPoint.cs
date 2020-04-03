@@ -1,4 +1,6 @@
 ﻿
+using GameFramework;
+
 namespace GameName
 {
     public class EndPoint : Entity
@@ -19,6 +21,14 @@ namespace GameName
         protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(elapseSeconds, realElapseSeconds);
+        }
+
+        private void OnTriggerEnter(UnityEngine.Collider other)
+        {
+            GameEntry.Sound.PlaySound(1);
+            GameFrameworkLog.Info("EndPoint");
+
+            GameEntry.Event.Fire(this, ReferencePool.Acquire<GetSoundItemEventArgs>());
         }
     }
 }
