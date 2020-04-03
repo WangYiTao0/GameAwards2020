@@ -65,5 +65,39 @@ namespace GameName
         {
             return --s_SerialId;
         }
+
+        /// <summary>
+        /// Show Camera
+        /// </summary>
+        /// <param name="entityComponent"></param>
+        /// <param name="data"></param>
+        public static void ShowCamera(this EntityComponent entityComponent, CameraData data)
+        {
+            entityComponent.ShowEntity(typeof(Camera), "Camera", Constant.AssetPriority.CameraAsset, data);
+        }
+        /// <summary>
+        /// show Player
+        /// </summary>
+        /// <param name="entityComponent"></param>
+        /// <param name="data"></param>
+        public static void ShowPlayer(this EntityComponent entityComponent, PlayerData data)
+        {
+            entityComponent.ShowEntity(typeof(Player), "Player", Constant.AssetPriority.PlayerAsset, data);
+        }
+
+        public static void ShowTerrain(this EntityComponent entityComponent, TerrainData data)
+        {
+            entityComponent.ShowEntity(typeof(Terrain), "Terrain", Constant.AssetPriority.TerrainAsset, data);
+        }
+
+        public static void ShowStartPoint(this EntityComponent entityComponent,StartPointData data)
+        {
+            entityComponent.ShowEntity(typeof(StartPoint), "StartPoint", Constant.AssetPriority.StartPointAsset, data);
+        }
+
+        public static void ShowEndPoint(this EntityComponent entityComponent, EndPointData data)
+        {
+            entityComponent.ShowEntity(typeof(EndPoint), "EndPoint", Constant.AssetPriority.EndPointAsset, data);
+        }
     }
 }
