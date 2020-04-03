@@ -41,6 +41,8 @@ namespace GameName
         {
             base.OnEnter(procedureOwner);
 
+            GameFrameworkLog.Info("OnEnter ProcedurePreload");
+
             GameEntry.Event.Subscribe(LoadConfigSuccessEventArgs.EventId, OnLoadConfigSuccess);
             GameEntry.Event.Subscribe(LoadConfigFailureEventArgs.EventId, OnLoadConfigFailure);
             GameEntry.Event.Subscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
@@ -59,15 +61,18 @@ namespace GameName
             GameEntry.Event.Unsubscribe(LoadConfigFailureEventArgs.EventId, OnLoadConfigFailure);
             GameEntry.Event.Unsubscribe(LoadDataTableSuccessEventArgs.EventId, OnLoadDataTableSuccess);
             GameEntry.Event.Unsubscribe(LoadDataTableFailureEventArgs.EventId, OnLoadDataTableFailure);
-            GameEntry.Event.Unsubscribe(LoadDictionarySuccessEventArgs.EventId, OnLoadDictionarySuccess);
+           GameEntry.Event.Unsubscribe(LoadDictionarySuccessEventArgs.EventId, OnLoadDictionarySuccess);
             GameEntry.Event.Unsubscribe(LoadDictionaryFailureEventArgs.EventId, OnLoadDictionaryFailure);
 
+            GameFrameworkLog.Info("OnLeave ProcedurePreload");
             base.OnLeave(procedureOwner, isShutdown);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+
+            //GameFrameworkLog.Info("OnUpdate ProcedurePreload");
 
             IEnumerator<bool> iter = m_LoadedFlag.Values.GetEnumerator();
             while (iter.MoveNext())
@@ -80,13 +85,16 @@ namespace GameName
 
             // TODO：这里开始，切换到你的场景，场景编号可在DefaultConfig中配置
             procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Menu"));
+            GameFrameworkLog.Info("{0}", GameEntry.Config.GetInt("Scene.Menu"));
             ChangeState<ProcedureChangeScene>(procedureOwner);
         }
 
         private void PreloadResources()
         {
+            GameFrameworkLog.Info("PreloadResources ProcedurePreload");
             // Preload configs
             LoadConfig("DefaultConfig");
+
 
             // Preload data tables
             foreach (string dataTableName in DataTableNames)
@@ -98,13 +106,17 @@ namespace GameName
             LoadDictionary("Default");
 
             // Preload fonts
-            LoadFont("MainFont");
+            LoadFont("orangejuice");
         }
 
         private void LoadConfig(string configName)
         {
+            GameFrameworkLog.Info("LoadConfig ProcedurePreload");
+
             m_LoadedFlag.Add(Utility.Text.Format("Config.{0}", configName), false);
             GameEntry.Config.LoadConfig(configName, LoadType.Bytes, this);
+
+            GameFrameworkLog.Info("{0}", configName);
         }
 
         private void LoadDataTable(string dataTableName)
@@ -141,6 +153,7 @@ namespace GameName
             LoadConfigSuccessEventArgs ne = (LoadConfigSuccessEventArgs)e;
             if (ne.UserData != this)
             {
+              
                 return;
             }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameFramework;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 namespace GameName
@@ -181,6 +182,7 @@ namespace GameName
 
         private static void InitBuiltinComponents()
         {
+            GameFrameworkLog.Info("InitBuiltinComponents");
             Base = UnityGameFramework.Runtime.GameEntry.GetComponent<BaseComponent>();
             Config = UnityGameFramework.Runtime.GameEntry.GetComponent<ConfigComponent>();
             DataNode = UnityGameFramework.Runtime.GameEntry.GetComponent<DataNodeComponent>();

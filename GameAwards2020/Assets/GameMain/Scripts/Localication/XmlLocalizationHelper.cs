@@ -46,6 +46,7 @@ namespace GameName
                         continue;
                     }
 
+                    //获取 key value 对
                     XmlNodeList xmlNodeStringList = xmlNodeDictionary.ChildNodes;
                     for (int j = 0; j < xmlNodeStringList.Count; j++)
                     {

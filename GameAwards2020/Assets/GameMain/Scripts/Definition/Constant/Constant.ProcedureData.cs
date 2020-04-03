@@ -12,7 +12,6 @@ namespace GameName
         public static class ProcedureData
         {
             public const string NextSceneId = "NextSceneId";
-            public const string GameMode = "GameMode";
         }
     }
 }

@@ -5,6 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.DataTable;
 using GameFramework.Event;
 using UnityGameFramework.Runtime;
@@ -14,9 +15,6 @@ namespace GameName
 {
     public class ProcedureChangeScene : ProcedureBase
     {
-        private const int MenuSceneId = 1;
-
-        private bool m_ChangeToMenu = false;
 
         /// <summary>
         /// 要切换目标场景ID
@@ -39,6 +37,8 @@ namespace GameName
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+
+            GameFrameworkLog.Info("OnEnter ProcedureChangeScene");
 
             m_IsChangeSceneComplete = false;
 
@@ -65,13 +65,12 @@ namespace GameName
             // 还原游戏速度
             GameEntry.Base.ResetNormalGameSpeed();
 
-            int sceneId = procedureOwner.GetData<VarInt>(Constant.ProcedureData.NextSceneId).Value;
-            m_ChangeToMenu = (sceneId == MenuSceneId);
+            gotoSceneId = procedureOwner.GetData<VarInt>(Constant.ProcedureData.NextSceneId).Value;
             IDataTable<DRScene> dtScene = GameEntry.DataTable.GetDataTable<DRScene>();
-            DRScene drScene = dtScene.GetDataRow(sceneId);
+            DRScene drScene = dtScene.GetDataRow(gotoSceneId);
             if (drScene == null)
             {
-                Log.Warning("Can not load scene '{0}' from data table.", sceneId.ToString());
+                Log.Warning("Can not load scene '{0}' from data table.", gotoSceneId.ToString());
                 return;
             }
 

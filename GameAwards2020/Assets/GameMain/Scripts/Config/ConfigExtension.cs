@@ -16,7 +16,7 @@ namespace GameName
         {
             if (string.IsNullOrEmpty(configName))
             {
-                Log.Warning("Config name is invalid.");
+                GameFrameworkLog.Warning("Config name is invalid.");
                 return;
             }
 

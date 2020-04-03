@@ -5,6 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.Localization;
 using System;
 using UnityEngine;
@@ -26,6 +27,12 @@ namespace GameName
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            GameFrameworkLog.Info("OnEnter ProcedureLaunch");
+
+            if(GameEntry.BuiltinData == null)
+            {
+                GameFrameworkLog.Info("GameEntry.BuiltinData == null");
+            }
 
             // 构建信息：发布版本时，把一些数据以 Json 的格式写入 Assets/GameMain/Configs/BuildInfo.txt，供游戏逻辑读取。
             GameEntry.BuiltinData.InitBuildInfo();
@@ -56,6 +63,7 @@ namespace GameName
 
         private void InitLanguageSettings()
         {
+            GameFrameworkLog.Info("InitLanguageSettings");
             if (GameEntry.Base.EditorResourceMode && GameEntry.Base.EditorLanguage != Language.Unspecified)
             {
                 // 编辑器资源模式直接使用 Inspector 上设置的语言
@@ -89,11 +97,12 @@ namespace GameName
 
             GameEntry.Localization.Language = language;
 
-            Log.Info("Init language settings complete, current language is '{0}'.", language.ToString());
+            GameFrameworkLog.Info("Init language settings complete, current language is '{0}'.", language.ToString());
         }
 
         private void InitCurrentVariant()
         {
+            GameFrameworkLog.Info("InitCurrentVariant");
             if (GameEntry.Base.EditorResourceMode)
             {
                 // 编辑器资源模式不使用 AssetBundle，也就没有变体了
@@ -131,6 +140,7 @@ namespace GameName
 
         private void InitQualitySettings()
         {
+            GameFrameworkLog.Info("InitQualitySettings");
             QualityLevelType defaultQuality = QualityLevelType.Fantastic;
             int qualityLevel = GameEntry.Setting.GetInt(Constant.Setting.QualityLevel, (int)defaultQuality);
             QualitySettings.SetQualityLevel(qualityLevel, true);
@@ -140,6 +150,7 @@ namespace GameName
 
         private void InitSoundSettings()
         {
+            GameFrameworkLog.Info("InitSoundSettings");
             GameEntry.Sound.Mute("Music", GameEntry.Setting.GetBool(Constant.Setting.MusicMuted, false));
             GameEntry.Sound.SetVolume("Music", GameEntry.Setting.GetFloat(Constant.Setting.MusicVolume, 0.3f));
             GameEntry.Sound.Mute("Sound", GameEntry.Setting.GetBool(Constant.Setting.SoundMuted, false));

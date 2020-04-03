@@ -1,4 +1,5 @@
 ﻿
+using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -18,6 +19,7 @@ namespace GameName
 
         private static void InitCustomComponents()
         {
+            GameFrameworkLog.Info("InitCustomComponents");
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
         }
 
