@@ -1,0 +1,5 @@
+#	DefaultConfig		
+#	Config	Note	Config Value
+	Scene.Menu	Menu	1
+	Scene.Main	Main	2
+	Scene.Level1	Level1	3

@@ -33,15 +33,7 @@ namespace GameName
             m_ScoreFormId = GameEntry.UI.OpenUIForm(UIFormId.ScoreForm).Value;
 
             //GameEntry.Entity.ShowCamera(new CameraData(GameEntry.Entity.GenerateSerialId(), 4));
-            GameEntry.Entity.ShowPlayer(new PlayerData(GameEntry.Entity.GenerateSerialId(), 1));
-            GameEntry.Entity.ShowTerrain(new TerrainData(GameEntry.Entity.GenerateSerialId(), 2));
-
-            for (int i = 0; i < 10; i++)
-            {
-                GameEntry.Entity.ShowSoundItem(new SoundItemData(GameEntry.Entity.GenerateSerialId(), 3,new Vector3(Random.Range(-5f, 5f), 1, Random.Range(-5f, 5f))));
-            }
-            GameEntry.Entity.ShowStartPoint(new StartPointData(GameEntry.Entity.GenerateSerialId(), 5));
-            GameEntry.Entity.ShowEndPoint(new EndPointData(GameEntry.Entity.GenerateSerialId(), 6));
+            GameEntry.Entity.ShowPlayer(new PlayerData(GameEntry.Entity.GenerateSerialId(), 1,Vector3.zero));
         }
 
 

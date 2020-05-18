@@ -85,24 +85,5 @@ namespace GameName
             entityComponent.ShowEntity(typeof(Player), "Player", Constant.AssetPriority.PlayerAsset, data);
         }
 
-        public static void ShowTerrain(this EntityComponent entityComponent, TerrainData data)
-        {
-            entityComponent.ShowEntity(typeof(Terrain), "Terrain", Constant.AssetPriority.TerrainAsset, data);
-        }
-
-        public static void ShowStartPoint(this EntityComponent entityComponent,StartPointData data)
-        {
-            entityComponent.ShowEntity(typeof(StartPoint), "StartPoint", Constant.AssetPriority.StartPointAsset, data);
-        }
-
-        public static void ShowEndPoint(this EntityComponent entityComponent, EndPointData data)
-        {
-            entityComponent.ShowEntity(typeof(EndPoint), "EndPoint", Constant.AssetPriority.EndPointAsset, data);
-        }
-
-        public static void ShowSoundItem(this EntityComponent entityComponent, SoundItemData data)
-        {
-            entityComponent.ShowEntity(typeof(SoundItem), "SoundItem", Constant.AssetPriority.SoundItemAsset, data);
-        }
     }
 }

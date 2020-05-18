@@ -1,9 +1,12 @@
-﻿
+﻿using UnityEngine;
+
 namespace GameName
 {
     public class PlayerData : EntityData
     {
-        public PlayerData(int entityId, int typeId) : base(entityId, typeId)
+        Vector3 Pos { set; get; }
+
+        public PlayerData(int entityId, int typeId, Vector3 pos) : base(entityId, typeId)
         {
 
         }

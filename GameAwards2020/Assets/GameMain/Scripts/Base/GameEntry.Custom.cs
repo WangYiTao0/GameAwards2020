@@ -21,6 +21,7 @@ namespace GameName
         {
             GameFrameworkLog.Info("InitCustomComponents");
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
+
         }
 
         private static void InitCustomDebuggers()
