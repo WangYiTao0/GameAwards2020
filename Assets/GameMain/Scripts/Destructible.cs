@@ -24,4 +24,26 @@ public class Destructible : MonoBehaviour {
 		}
 	}
 
+
+    private void OnParticleCollision(GameObject other)
+    {
+        var Mode=
+        GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>().GetCurrentMode();
+      
+        switch(Mode)
+        {
+            case SoundAttcakControl.ACTION_MODE.none:
+                break;
+            case SoundAttcakControl.ACTION_MODE.Don:
+                if (other.tag == "AttackAction")//collide with particles
+                {
+                    // Spawn a shattered object
+                    Instantiate(destroyedVersion, transform.position, transform.rotation);
+                    // Remove the current object
+                    Destroy(gameObject);
+                }
+                break;
+        }
+    }
+
 }

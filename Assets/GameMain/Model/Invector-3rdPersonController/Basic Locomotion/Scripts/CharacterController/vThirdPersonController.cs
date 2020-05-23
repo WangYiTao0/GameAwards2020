@@ -207,6 +207,10 @@ namespace Invector.vCharacterController
                 }
             }
         }
+        public virtual void PickUp()
+        {
+            Graphic.CSEffectOprate.CreateEffect(Effects.TYPE2D.ReadBar);
+        }
 
         public virtual void Strafe()
         {

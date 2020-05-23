@@ -28,6 +28,8 @@ namespace Invector.vCharacterController
         public GenericInput strafeInput = new GenericInput("Tab", "RightStickClick", "RightStickClick");
         public GenericInput sprintInput = new GenericInput("LeftShift", "LeftStickClick", "LeftStickClick");
         public GenericInput crouchInput = new GenericInput("C", "Y", "Y");
+        public GenericInput pickUpInput = new GenericInput("F", null, null);
+        public GenericInput ReleaseSoundAction = new GenericInput(null, null, null);
         [HideInInspector] public bool lockInput;
 
         [vEditorToolbar("Camera Settings")]
@@ -286,6 +288,7 @@ namespace Invector.vCharacterController
             StrafeInput();
             JumpInput();
             RollInput();
+            PickUpInput();
         }
 
         public virtual void MoveInput()
@@ -334,6 +337,15 @@ namespace Invector.vCharacterController
                 cc.Crouch();
         }
 
+        protected virtual void PickUpInput()
+        {
+            if (pickUpInput.useInput && pickUpInput.GetButtonDown())
+            {
+                Debug.Log("asdad");
+                cc.PickUp();
+            }
+        }
+
         /// <summary>
         /// Conditions to trigger the Jump animation & behavior
         /// </summary>
@@ -369,6 +381,7 @@ namespace Invector.vCharacterController
             if (rollInput.GetButtonDown() && RollConditions())
                 cc.Roll();
         }
+       
 
         #endregion       
 
