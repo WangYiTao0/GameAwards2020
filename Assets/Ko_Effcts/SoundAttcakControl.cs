@@ -8,6 +8,10 @@ public class SoundAttcakControl : MonoBehaviour
     {
         none,
         Don,
+        type0,
+        type1,
+        type2,
+        type3,
     }
      [SerializeField] ACTION_MODE ActionMode;
      void Start()
