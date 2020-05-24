@@ -19,7 +19,7 @@ namespace Invector.vCharacterController
 #if UNITY_5_4_OR_NEWER
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
 #endif
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
 
         }
 #if UNITY_5_4_OR_NEWER

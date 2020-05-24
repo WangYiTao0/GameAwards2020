@@ -118,11 +118,8 @@ namespace Invector.vCharacterController
 
             if (cc != null)
                 cc.Init();
-
-            if (vThirdPersonController.instance == cc || vThirdPersonController.instance == null)
-            {
-                StartCoroutine(CharacterInit());
-            }
+            
+            StartCoroutine(CharacterInit());            
 
             ShowCursor(showCursorOnStart);
             LockCursor(unlockCursorOnStart);
@@ -131,15 +128,25 @@ namespace Invector.vCharacterController
         protected virtual IEnumerator CharacterInit()
         {
             yield return new WaitForEndOfFrame();
-            if (tpCamera == null)
-            {
-                tpCamera = FindObjectOfType<vCamera.vThirdPersonCamera>();
-                if (tpCamera && tpCamera.target != transform) tpCamera.SetMainTarget(this.transform);
-            }
+            FindCamera();
+            FindHUD();
+        }
+
+        public virtual void FindHUD()
+        {
             if (hud == null && vHUDController.instance != null)
             {
                 hud = vHUDController.instance;
                 hud.Init(cc);
+            }
+        }
+
+        public virtual void FindCamera()
+        {
+            if (tpCamera == null)
+            {
+                tpCamera = FindObjectOfType<vCamera.vThirdPersonCamera>();
+                if (tpCamera && tpCamera.target != transform) tpCamera.SetMainTarget(this.transform);
             }
         }
 
@@ -179,6 +186,8 @@ namespace Invector.vCharacterController
 
         public virtual void OnAnimatorMove()
         {
+            if (cc == null) return;
+
             cc.ControlAnimatorRootMotion();            
             if (onAnimatorMove != null) onAnimatorMove.Invoke();            
         }
@@ -419,10 +428,23 @@ namespace Invector.vCharacterController
         }
 
         public virtual void ChangeCameraState(string cameraState, bool useLerp = true)
+        {            
+            if (useLerp) ChangeCameraStateWithLerp(cameraState);
+            else ChangeCameraStateNoLerp(cameraState);
+        }
+
+        public virtual void ChangeCameraStateWithLerp(string cameraState)
         {
             changeCameraState = true;
             customCameraState = cameraState;
-            smoothCameraState = useLerp;
+            smoothCameraState = true;
+        }
+
+        public virtual void ChangeCameraStateNoLerp(string cameraState)
+        {
+            changeCameraState = true;
+            customCameraState = cameraState;
+            smoothCameraState = false;
         }
 
         public virtual void ResetCameraState()

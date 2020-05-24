@@ -4,32 +4,7 @@ namespace Invector.vCharacterController
 {
     [vClassHeader("THIRD PERSON CONTROLLER", iconName = "controllerIcon")]
     public class vThirdPersonController : vThirdPersonAnimator
-    {
-        #region Variables
-
-        [vHelpBox("Check this option to transfer your character from one scene to another, uncheck if you're planning to use the controller with any kind of Multiplayer local or online")]
-        public bool useInstance = true;
-        public static vThirdPersonController instance;
-
-        #endregion
-
-        //protected override void Start()
-        //{
-        //    base.Start();
-        //    if (!useInstance) return;
-
-        //    if (instance == null)
-        //    {
-        //        instance = this;
-        //        DontDestroyOnLoad(this.gameObject);
-        //        this.gameObject.name = gameObject.name + " Instance";
-        //    }
-        //    else
-        //    {
-        //        Destroy(this.gameObject);
-        //        return;
-        //    }
-        //}
+    {       
 
         public virtual void MoveToPosition(Vector3 targetPosition)
         {

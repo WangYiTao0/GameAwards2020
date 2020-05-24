@@ -293,7 +293,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00009291006, y: 33.153046, z: 2.5031934}
+  m_ConnectedAnchor: {x: 0.00009308212, y: 33.153046, z: 2.5031934}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -965,7 +965,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00007743203, y: 28.77718, z: 0.000009536745}
+  m_ConnectedAnchor: {x: 0.00008675736, y: 28.777178, z: 0.0000028610236}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1171,7 +1171,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -10.920569, y: -5.3976474, z: 1.948057}
+  m_ConnectedAnchor: {x: -10.920569, y: -5.3976474, z: 1.948051}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1436,7 +1436,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 18.556305, y: 21.897707, z: 0.007964287}
+  m_ConnectedAnchor: {x: 18.556307, y: 21.897703, z: 0.007974777}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 1
-  selectedToolbar: 3
+  selectedToolbar: 5
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
@@ -1985,7 +1985,7 @@ MonoBehaviour:
   headDetect: 0.95
   stopMoveLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 0
   stopMoveHeight: 0.65
   stopMoveDistance: 0.1
   useRootMotion: 0
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   stepOffsetMaxHeight: 0.5
   stepOffsetMinHeight: 0
   stepOffsetDistance: 0.1
-  debugWindow: 0
+  debugWindow: 1
   applyingStepOffset: 0
   inputSmooth: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
@@ -2069,6 +2069,7 @@ MonoBehaviour:
   openCloseEvents: 0
   openCloseWindow: 0
   selectedToolbar: 0
+  lockInput: 0
   unlockCursorOnStart: 0
   showCursorOnStart: 0
   horizontalInput:
@@ -2083,8 +2084,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   verticallInput:
     useInput: 1
@@ -2098,8 +2098,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   jumpInput:
     useInput: 1
@@ -2113,8 +2112,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   rollInput:
     useInput: 1
@@ -2128,8 +2126,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   strafeInput:
     useInput: 1
@@ -2143,8 +2140,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   sprintInput:
     useInput: 1
@@ -2158,8 +2154,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   crouchInput:
     useInput: 1
@@ -2173,10 +2168,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
-  lockInput: 0
   lockCameraInput: 0
   ignoreCameraRotation: 0
   rotateCameraXInput:
@@ -2191,8 +2184,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   rotateCameraYInput:
     useInput: 1
@@ -2206,8 +2198,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   cameraZoomInput:
     useInput: 1
@@ -2221,8 +2212,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   OnLockCamera:
     m_PersistentCalls:
@@ -2308,15 +2298,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
-  startRagdolled: 0
-  debugTimeToStayRagdolled: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
-  keepRagdolled: 0
-  _ignoreGetUpAnimation: 0
   removePhysicsAfterDie: 1
   disableColliders: 1
   collisionSource: {fileID: 0}
@@ -2339,7 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   defaultDamageEffect: {fileID: 0}
   customDamageEffects: []
@@ -2356,7 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   upDownAxis: {x: 1, y: 0, z: 0}
   strafeHeadWeight: 0.8
@@ -2404,7 +2390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   actionEnter: 0
   actionStay: 0
@@ -2444,7 +2430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 1
   actionEnter: 0
   actionStay: 0
@@ -2469,8 +2455,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   enterInput:
     useInput: 1
@@ -2484,8 +2469,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   exitInput:
     useInput: 1
@@ -2499,8 +2483,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   fastClimbInput:
     useInput: 1
@@ -2514,8 +2497,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   slideDownInput:
     useInput: 1
@@ -2529,8 +2511,7 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    timeButtonWasPressed: 0
-    lastTimeTheButtonWasPressed: 0
+    buttomTimer: 0
     inButtomTimer: 0
   enterRotationCurve:
     serializedVersion: 2
@@ -2744,7 +2725,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00023501855, y: 21.022522, z: -0.33007088}
+  m_ConnectedAnchor: {x: -0.00023373286, y: 21.022522, z: -0.33007088}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2887,7 +2868,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 10.9206705, y: -5.397657, z: 1.6831349}
+  m_ConnectedAnchor: {x: 10.9206705, y: -5.397657, z: 1.6829503}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3030,7 +3011,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00001668796, y: 46.442314, z: -0.000021159647}
+  m_ConnectedAnchor: {x: -0.00001668796, y: 46.442314, z: -0.000027596947}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3485,7 +3466,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -18.555357, y: 21.897718, z: -0.18372661}
+  m_ConnectedAnchor: {x: -18.555355, y: 21.897718, z: -0.1837371}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -3628,7 +3609,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00006994606, y: 28.782856, z: 0.000019073485}
+  m_ConnectedAnchor: {x: 0.00004321337, y: 28.782856, z: 0.000019073485}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -3770,7 +3751,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3788,7 +3768,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -3990,7 +3969,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4008,7 +3986,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4301,7 +4278,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4319,7 +4295,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4552,7 +4527,6 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4570,7 +4544,6 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4923,7 +4896,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000851848, y: 46.44298, z: -0.000056146382}
+  m_ConnectedAnchor: {x: 0.00000851848, y: 46.44298, z: -0.000049709215}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:

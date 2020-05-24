@@ -50,7 +50,7 @@ namespace Invector.vCharacterController
         };
         #endregion
 
-        public const string _thirdPersonVersion = "2.5.1";
+        public const string _thirdPersonVersion = "2.5.2";
         public const string _fsmAIVersion = "1.1.1";
 
         public const string _projectSettingsPath = "Assets/Invector-3rdPersonController/Basic Locomotion/Resources/vProjectSettings.unitypackage";

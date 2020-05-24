@@ -7,6 +7,23 @@ namespace Invector.vCamera
     public class vThirdPersonCamera : MonoBehaviour
     {
 
+        private static vThirdPersonCamera _instance;
+        public static vThirdPersonCamera instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = GameObject.FindObjectOfType<vThirdPersonCamera>();
+
+                    //Tell unity not to destroy this object when loading a new scene!
+                    //DontDestroyOnLoad(_instance.gameObject);
+                }
+
+                return _instance;
+            }
+        }
+
         #region inspector properties    
         public Transform target;
 

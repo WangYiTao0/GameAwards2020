@@ -36,7 +36,7 @@ namespace Invector
             if (instance == null)
             {
                 instance = this;
-               // DontDestroyOnLoad(this.gameObject);
+                DontDestroyOnLoad(this.gameObject);
                 this.gameObject.name = gameObject.name + " Instance";
             }
             else

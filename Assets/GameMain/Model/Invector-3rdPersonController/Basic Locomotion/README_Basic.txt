@@ -24,7 +24,15 @@ ONLINE DOCUMENTATION: https://www.invector.xyz/thirdpersondocumentation
 
 Invector Team - 2020
 
-Basic Locomotion v2.5.1 New Inventory/Improvements/BugFixes - 03/05/2020
+Basic Locomotion v2.5.2 BugFixes - 16/05/2020
+
+- Fix Character Creator Window bug in the button "Create" not working on 2019.x when the prefab of the character is in the scene
+- Fix Missing files at the Mobile Internal Package
+- Add HealthController OnResetHealth and OnChangeHealth Events
+
+-----------------------------------------------------------------------------------------------------
+
+Basic Locomotion v2.5.1 Improvements/BugFixes - 03/05/2020
 
 - Fix Character MovementSmooth & AnimationSmooth values acting different depending on the framerate
 - Fix Character being dragged down on 45+ ramps if the option 'UseSnapGround' is checked
@@ -41,8 +49,8 @@ Basic Locomotion v2.5.1 New Inventory/Improvements/BugFixes - 03/05/2020
 - Add Ragdoll Ground Layer, New Debugs options & DamageReceiver improvements
 - Add Ragdoll StayDownTime you can now add a time for the character to stay in ragdoll after taking damage
 - Add new vSimpleDoor with input hold example, improved verifications
-- Add vTriggerActionEvent to filter when you perform a specific TriggerGenericAction to call Events 
-  (ex: when jumpOver only, you can call a event to hide weapons)
+- Add vTriggerActionEvent to filter when you perform a specific TriggerGenericAction to call Events
+(ex: when jumpOver only, you can call a event to hide weapons)
 
 - Improved GenericAction verifications when performing a action without animation
 - Improved GenericAction Debug Mode, now it's more detailed step by step of the action
