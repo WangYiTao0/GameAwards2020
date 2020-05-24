@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundtypeManager :MonoBehaviour
 {
+    public bool CanReceive;
     [System.Serializable]
     public struct SOUND_TYPE
     {

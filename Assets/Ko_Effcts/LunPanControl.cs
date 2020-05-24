@@ -154,9 +154,12 @@ public class LunPanControl : SoundtypeManager
             float distans = Vector2.Distance(pos, targetPos);
             if (distans < 30)
             {
-                SoundUI[i].GetComponent<Button>().onClick.Invoke();
-                RemoveSoundForLunPan(i);
-                ChangeImage(i, NoneImage);
+                if (SoundUI[i].GetComponent<Image>().sprite != NoneImage)
+                {
+                    SoundUI[i].GetComponent<Button>().onClick.Invoke();
+                    RemoveSoundForLunPan(i);
+                    ChangeImage(i, NoneImage);
+                }
                 //RemoveClickEnvent();
             }
         }
@@ -174,9 +177,15 @@ public class LunPanControl : SoundtypeManager
     {
         for(int i=0;i<SoundKnapsack.Count;i++)
         {
-            AddonClickEnvent(i, SoundKnapsack[i].ActionName);
-            ChangeImage(i, SoundKnapsack[i].SoundImage);
+            for(int q=0;q<SoundUI.Count;q++)
+            if (SoundUI[q].GetComponent<Image>().sprite == NoneImage)
+            {
+                AddonClickEnvent(q, SoundKnapsack[i].ActionName);
+                ChangeImage(q, SoundKnapsack[i].SoundImage);
+                    return;
+            }
         }
     }
+
 
 }
