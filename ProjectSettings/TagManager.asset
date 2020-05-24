@@ -30,9 +30,6 @@ TagManager:
   - CoverPoint
   - Interactable
   - AIAction
-  - Fire
-  - Sound_Don
-  - AttackAction
   layers:
   - Default
   - TransparentFX
@@ -51,7 +48,7 @@ TagManager:
   - HeadTrack
   - BodyPart
   - BlockAIRayCast
-  - blockade
+  - 
   - 
   - 
   - 
