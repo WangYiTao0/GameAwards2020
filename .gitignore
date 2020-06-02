@@ -32,3 +32,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+#100MB Over
+CTS_Profile_180424-1317_Albedos.asset
