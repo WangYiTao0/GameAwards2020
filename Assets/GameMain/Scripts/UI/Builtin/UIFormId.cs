@@ -35,5 +35,9 @@ namespace GameName
         AboutForm = 102,
 
         ScoreForm = 200,
+
+        PauseFrom = 201,
+
+        PlayerHUDForm = 202,
     }
 }
