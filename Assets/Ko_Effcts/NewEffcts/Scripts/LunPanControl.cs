@@ -32,6 +32,7 @@ public class LunPanControl : SoundtypeManager
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
+            //滑轮移动处理
             if (nextAngle == 0)
                 CountState = 0;
         }
@@ -52,14 +53,14 @@ public class LunPanControl : SoundtypeManager
                 CountState = 1;
             
         }
-
-        if(Input.GetMouseButtonDown(0))
+        LunPanColorControl();//轮盘颜色管理
+        if (Input.GetMouseButtonDown(0))//点击UI
         {
-            ClickLunPan();
+            ClickLunPan();//点击轮盘中的UI
             this.transform.GetComponentInParent<LunPanManger>().LunpanOff();
-            var ReleaseSound =
-            GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>();
-            ReleaseSound.SoundAttackPlay();
+            //var ReleaseSound =
+            //GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>();
+            //ReleaseSound.SoundAttackPlay();
         }
 
 
@@ -160,6 +161,21 @@ public class LunPanControl : SoundtypeManager
                     RemoveSoundForLunPan(i);
                     ChangeImage(i, NoneImage);
                 }
+                //RemoveClickEnvent();
+            }
+        }
+    }
+    public void LunPanColorControl()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Vector2 pos = SoundUI[i].GetComponent<Transform>().position;
+            Vector2 targetPos = PressPos.GetComponent<Transform>().position;
+            float distans = Vector2.Distance(pos, targetPos);
+            SoundUI[i].GetComponent<Image>().color= new Color(1, 1, 1, 0.1f);
+            if (distans < 30)
+            {
+                SoundUI[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 //RemoveClickEnvent();
             }
         }
