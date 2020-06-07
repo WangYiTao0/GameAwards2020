@@ -324,6 +324,7 @@ namespace Invector.vCharacterController
             currentStamina = maxStamina;
             ResetJumpMultiplier();
             isGrounded = true;
+            StaminaRecovery();
         }
 
         public virtual void UpdateMotor()
@@ -336,7 +337,7 @@ namespace Invector.vCharacterController
             ControlCapsuleHeight();
             ControlJumpBehaviour();
             AirControl();
-            StaminaRecovery();
+            //StaminaRecovery();
             HealthRecovery();
         }
 

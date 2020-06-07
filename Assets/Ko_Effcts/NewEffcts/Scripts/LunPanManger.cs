@@ -15,16 +15,16 @@ public class LunPanManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)//滑轮滑动轮盘
         {
-            LunpanOn();
+            LunpanOn();//开启
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             LunpanOn();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))//键盘滑动轮盘
         {
             LunpanOn();
         }

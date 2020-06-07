@@ -6,7 +6,7 @@ public class kotest : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject Camera;
-    private Light pointlight;
+    //private Light pointlight;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +16,16 @@ public class kotest : MonoBehaviour
     void Update()
     {
        
-       if(Input.GetKeyDown(KeyCode.F))
+       if(Input.GetKeyDown(KeyCode.F))//收集声音食物之类
        {
             Graphic.CSEffectOprate.CreateEffect(Effects.TYPE2D.ReadBar);
+            //生成收集条
         }
-       if(Input.GetKeyDown(KeyCode.T))
+       if(Input.GetKeyDown(KeyCode.T))//进入认真倾听模式XBOX
         {
-            if (player.transform.GetChild(3).GetComponent<Light>().enabled)
             {
                 Camera.GetComponent<EdgeDetection>().enabled = true ;
                 Graphic.CSEffectOprate.CreateEffectParent(Effects.TYPE3D.Listen, player);
-                player.transform.GetChild(3).GetComponent<Light>().enabled = false;
             }
         }
     }
