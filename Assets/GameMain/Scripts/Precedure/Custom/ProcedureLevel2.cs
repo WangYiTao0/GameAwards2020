@@ -1,6 +1,7 @@
 ﻿using GameFramework;
 using GameFramework.Event;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
@@ -25,6 +26,7 @@ namespace GameName
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            GameEntry.Entity.ShowPlayer(new PlayerControllerData(GameEntry.Entity.GenerateSerialId(), 1));
         }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
@@ -40,6 +42,12 @@ namespace GameName
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
+
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level1"));
+                ChangeState<ProcedureChangeScene>(procedureOwner);
+            }
         }
 
     }

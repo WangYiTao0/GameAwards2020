@@ -33,17 +33,17 @@ namespace Invector
 
         void Start()
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(this.gameObject);
-                this.gameObject.name = gameObject.name + " Instance";
-            }
-            else
-            {
-                Destroy(this.gameObject);
-                return;
-            }
+            //if (instance == null)
+            //{
+            //    instance = this;
+            //    DontDestroyOnLoad(this.gameObject);
+            //    this.gameObject.name = gameObject.name + " Instance";
+            //}
+            //else
+            //{
+            //    Destroy(this.gameObject);
+            //    return;
+            //}
 
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
             if (displayInfoInFadeText && vHUDController.instance)

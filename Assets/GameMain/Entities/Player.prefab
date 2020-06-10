@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511255858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.349, z: -1.662}
+  m_LocalPosition: {x: 0, y: 1.349, z: -5.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5696706086886227334}
@@ -145,7 +145,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511255858}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &511255860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8338,7 +8338,7 @@ GameObject:
   - component: {fileID: 1732466061}
   - component: {fileID: 1732466062}
   - component: {fileID: 2119597895}
-  - component: {fileID: 71836281}
+  - component: {fileID: 4807749794479916526}
   m_Layer: 8
   m_Name: Gfx
   m_TagString: Player
@@ -8555,7 +8555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 0
+  openCloseWindow: 1
   selectedToolbar: 0
   unlockCursorOnStart: 0
   showCursorOnStart: 0
@@ -8785,8 +8785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1660eeab87ecf543be4a3ca42e6e836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
+  openCloseEvents: 1
+  openCloseWindow: 1
   selectedToolbar: 0
   actionEnter: 0
   actionStay: 0
@@ -9144,7 +9144,7 @@ MonoBehaviour:
   footStepTriggers: []
   detectionTags:
     tags: []
---- !u!114 &71836281
+--- !u!114 &4807749794479916526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

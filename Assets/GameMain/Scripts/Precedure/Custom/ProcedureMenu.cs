@@ -70,7 +70,7 @@ namespace GameName
             if(m_StartGame)
             {
                 //change to MainScene
-                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.LevelSelect"));
+                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level2"));
                 ChangeState<ProcedureChangeScene>(procedureOwner);
             }
         

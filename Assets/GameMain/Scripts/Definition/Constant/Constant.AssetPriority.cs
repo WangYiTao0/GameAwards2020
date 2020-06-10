@@ -18,6 +18,9 @@
             public const int UISoundAsset = 30;
 
             //Entities Priority
+            public const int PlayerAsset = 30;
+            public const int StartAsset = 40;
+            public const int EndAsset = 40;
             //public const int MyAircraftAsset = 90;
             //public const int AircraftAsset = 80;
             //public const int ThrusterAsset = 30;

@@ -40,6 +40,19 @@ namespace GameName
             entityComponent.AttachEntity(entity.Entity, ownerId, parentTransformPath, userData);
         }
 
+        public static void ShowPlayer(this EntityComponent entityComponent,PlayerControllerData data)
+        {
+            entityComponent.ShowEntity(typeof(PlayerController), "PlayerController", Constant.AssetPriority.PlayerAsset, data);
+        }
+
+        public static void ShowStart(this EntityComponent entityComponent, StartData data)
+        {
+            entityComponent.ShowEntity(typeof(Start), "Start", Constant.AssetPriority.StartAsset, data);
+        }
+        public static void ShowEnd(this EntityComponent entityComponent, EndData data)
+        {
+            entityComponent.ShowEntity(typeof(End), "End", Constant.AssetPriority.EndAsset, data);
+        }
         private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
         {
             if (data == null)
@@ -48,15 +61,15 @@ namespace GameName
                 return;
             }
 
-            //IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
-            //DREntity drEntity = dtEntity.GetDataRow(data.TypeId);
-            //if (drEntity == null)
-            //{
-            //    Log.Warning("Can not load entity id '{0}' from data table.", data.TypeId.ToString());
-            //    return;
-            //}
+            IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
+            DREntity drEntity = dtEntity.GetDataRow(data.TypeId);
+            if (drEntity == null)
+            {
+                Log.Warning("Can not load entity id '{0}' from data table.", data.TypeId.ToString());
+                return;
+            }
 
-            //entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetName), entityGroup, priority, data);
+            entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetName), entityGroup, priority, data);
         }
 
         public static int GenerateSerialId(this EntityComponent entityComponent)
