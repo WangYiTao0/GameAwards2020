@@ -1,8 +1,6 @@
 ﻿
 using GameFramework;
 using GameFramework.Event;
-using GameFramework.Fsm;
-using GameFramework.Procedure;
 using System.Collections.Generic;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
@@ -20,8 +18,6 @@ namespace GameName
         }
 
         private ScoreForm m_ScoreForm = null;
-        private PlayerHUDForm m_PlayerForm = null;
-
 
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {
@@ -31,10 +27,9 @@ namespace GameName
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-            GameFrameworkLog.Info("ProcedureLevel1 OnEnter");
-           // GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
+            GameFrameworkLog.Info("ProcedureLeveel1 OnEnter");
+            GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
             GameEntry.UI.OpenUIForm(UIFormId.ScoreForm, this);
-            GameEntry.UI.OpenUIForm(UIFormId.PlayerHUDForm, this);
         }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
@@ -45,7 +40,6 @@ namespace GameName
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
-            //GameEntry.Event.Unsubscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
@@ -65,8 +59,7 @@ namespace GameName
                 return;
             }
 
-            m_ScoreForm = (ScoreForm)ne.UIForm.Logic; ;
-            m_PlayerForm = (PlayerHUDForm)ne.UIForm.Logic;
+            m_ScoreForm = (ScoreForm)ne.UIForm.Logic;
         }
     }
 }
