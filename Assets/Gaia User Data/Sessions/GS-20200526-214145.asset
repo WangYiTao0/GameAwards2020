@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e251860fcd970734c9f14ebd98a146c3, type: 3}
+  m_Name: GS-20200526-214145
+  m_EditorClassIdentifier: 
+  m_name: Session 20200526-214145
+  m_description: 'Rocking out at Creativity Central!
+
+
+    If you like Gaia please
+    consider rating it :)'
+  m_previewImage: {fileID: 0}
+  m_dateCreated: 2020/05/26 21:41:45
+  m_terrainWidth: 256
+  m_terrainDepth: 1000
+  m_terrainHeight: 256
+  m_seaLevel: 4
+  m_isLocked: 0
+  m_previewImageBytes: 
+  m_previewImageWidth: 0
+  m_previewImageHeight: 0
+  m_operations:
+  - m_description: 'Creating World: 1 x 1 tiles, tile size: 256'
+    m_operationType: 0
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 2020/05/26 21:41:46
+    scriptableObjectAssetGUID: 12034fdc683e7364c8152dc0ed03b221
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: RaiseHeight - Andes Mountains
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 21:45:12
+    scriptableObjectAssetGUID: bae1415f01f486e42bd8be79f0feffa1
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: Spawning - Multiple Spawners (7)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 21:45:13
+    scriptableObjectAssetGUID: 36198d3488115f64dabfafbf29ac476a
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: 'Creating World: 1 x 1 tiles, tile size: 256'
+    m_operationType: 0
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 2020/05/26 22:00:00
+    scriptableObjectAssetGUID: a9d973c03a6b56a4688901c179307393
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: RaiseHeight - Colima B
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 22:13:28
+    scriptableObjectAssetGUID: 3ee2dc5d06d07864b8b610d604aa664a
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: Spawning - Multiple Spawners (7)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 22:13:29
+    scriptableObjectAssetGUID: d11607934047d1f4ba076b0271b7005f
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: RaiseHeight - Colima B
+    m_operationType: 4
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 22:14:32
+    scriptableObjectAssetGUID: 4073f7ddd1842344db75d1d30d88fae4
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  - m_description: Spawning - Multiple Spawners (7)
+    m_operationType: 7
+    m_isActive: 1
+    m_affectedTerrainNames:
+    - Terrain_0_0-20200526 - 214145
+    m_operationDateTime: 2020/05/26 22:14:32
+    scriptableObjectAssetGUID: 410461d529b2e3a46af517e9461360a8
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+  m_terrainMinMaxCache:
+  - guid: e361fbd2e6499a84c87ee882f92bb283
+    isWorldmap: 0
+    recalculate: 0
+    min: 0
+    max: 30.275286
+  m_bakedMaskCacheEntries:
+  - fileName: Terrain_0_0-20200526 - 214145_Tag_PW - Building_12
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_12
+    fullPath: E:/2020/GameAwards2020/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_12
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20200526 - 214145_Tag_PW - Prop_1.19
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Prop_1.19
+    fullPath: E:/2020/GameAwards2020/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Prop_1.19
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20200526 - 214145_Tag_PW - Building_10
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_10
+    fullPath: E:/2020/GameAwards2020/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_10
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20200526 - 214145_Tag_PW - Prop_3
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Prop_3
+    fullPath: E:/2020/GameAwards2020/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Prop_3
+    texture: {fileID: 0}
+  - fileName: Terrain_0_0-20200526 - 214145_Tag_PW - Building_3.69
+    assetPath: Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_3.69
+    fullPath: E:/2020/GameAwards2020/Assets/Procedural Worlds/Gaia/TerrainCollisionData/Terrain_0_0-20200526
+      - 214145/Terrain_0_0-20200526 - 214145_Tag_PW - Building_3.69
+    texture: {fileID: 0}
+  m_worldBiomeMaskSettings: {fileID: 0}
