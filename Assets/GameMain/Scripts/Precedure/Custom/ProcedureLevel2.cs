@@ -45,7 +45,7 @@ namespace GameName
 
             if(Input.GetKeyDown(KeyCode.A))
             {
-                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level1"));
+                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level3"));
                 ChangeState<ProcedureChangeScene>(procedureOwner);
             }
         }

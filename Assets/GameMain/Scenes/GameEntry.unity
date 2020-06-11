@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 2046561309}
   - component: {fileID: 2046561308}
   - component: {fileID: 2046561307}
+  - component: {fileID: 2046561310}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -671,3 +672,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &2046561310
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046561306}
+  m_Enabled: 1

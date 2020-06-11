@@ -39,7 +39,7 @@ namespace GameName
             {
                 m_ScoreTimer = 0;
                 m_Score += 1;
-                scoreText.text = "总分：" + m_Score;
+                scoreText.text = "Time : " + m_Score;
             }
         }
 
