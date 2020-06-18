@@ -5,6 +5,7 @@ using GameFramework.Fsm;
 using GameFramework.Procedure;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
@@ -68,7 +69,13 @@ namespace GameName
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if(isGameClear)
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                isGameClear = true;
+
+            }
+
+            if (isGameClear)
             {
                 isGameClear = false;
                 procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level2"));

@@ -43,11 +43,11 @@ namespace GameName
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            //if (Input.GetKeyDown(KeyCode.A))
-            //{
-            //    procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Level4"));
-            //    ChangeState<ProcedureChangeScene>(procedureOwner);
-            //}
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.GameMenu"));
+                ChangeState<ProcedureChangeScene>(procedureOwner);
+            }
         }
 
     }
