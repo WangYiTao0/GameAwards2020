@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Invector.vCharacterController;
 
 namespace Invector
 {
@@ -11,7 +12,9 @@ namespace Invector
 
         private void Start()
         {
-            m_information.ActionName = SoundAction;
+            //m_information.ActionName =
+            var xx = GameObject.Find("ActionEventsManager").GetComponent<CActionEventsManager>();
+            m_information.ActionName = xx.RedClickAction;
         }
 
 
@@ -42,12 +45,7 @@ namespace Invector
         {
             Debug.Log(" i am type mono1");
         }
-        private void OnDestroy()
-        {
-            Debug.Log("asdasdxx");
-            Lunpan.GetComponent<LunPanControl>().RemoveSoundForKnapsack(m_information.SoundID);
-            
-        }
+      
 
 
     }

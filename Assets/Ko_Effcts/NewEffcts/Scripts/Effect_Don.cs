@@ -4,6 +4,7 @@ namespace Invector
 {
     public class Effect_Don :  SoundtypeManager
     {
+        [SerializeField] GameObject player;
         public string tagFilter = "Player";
         //public bool isReceive;
         //public bool CanReceive;
@@ -61,9 +62,9 @@ namespace Invector
         }
         protected override void SoundAction()
         {
-            GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>().SetMode(SoundAttcakControl.ACTION_MODE.Don);
+            player.GetComponent<SoundAttcakControl>().SetMode(SoundAttcakControl.ACTION_MODE.Don);
             var ReleaseSound =
-          GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>();
+          player.GetComponent<SoundAttcakControl>();
             ReleaseSound.SoundAttackPlay();
         }
 

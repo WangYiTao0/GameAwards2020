@@ -6,6 +6,7 @@ public class Crashed : MonoBehaviour
     // Start is called before the first frame update
     public GameObject obj;
     public GameObject objcrasjed;
+    [SerializeField] GameObject mAttack;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class Crashed : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         var Mode =
-        GameObject.Find("Player").transform.GetChild(2).GetComponent<SoundAttcakControl>().GetCurrentMode();
+        mAttack.GetComponent<SoundAttcakControl>().GetCurrentMode();
 
         switch (Mode)
         {

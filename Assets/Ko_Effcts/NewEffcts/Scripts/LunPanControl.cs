@@ -189,6 +189,25 @@ public class LunPanControl : SoundtypeManager
         SoundKnapsack.Add(_soundmessge);
 
     }
+    public void SoundMessageToLunpanForMono()
+    {
+        for (int i = 0; i < SoundKnapsack.Count; i++)
+        {
+            if (SoundKnapsack[i].SoundOrMonoUI == TYPE.SoundUI) return;
+            for (int q = 0; q < SoundUI.Count; q++)
+                if (SoundUI[q].GetComponent<Image>().sprite == NoneImage)
+                {
+                    AddonClickEnvent(q, SoundKnapsack[i].ActionName);
+                    ChangeImage(q, SoundKnapsack[i].SoundImage);
+                    if (SoundKnapsack[i].SoundOrMonoUI == TYPE.MonoUI)
+                    {
+                        Destroy(SoundKnapsack[i].My_Obj);
+                        RemoveSoundForKnapsack(SoundKnapsack[i].SoundID);
+                    }
+                    return;
+                }
+        }
+    }
     public void SoundMessageToLunpan()
     {
         for(int i=0;i<SoundKnapsack.Count;i++)
@@ -198,7 +217,6 @@ public class LunPanControl : SoundtypeManager
             {
                 AddonClickEnvent(q, SoundKnapsack[i].ActionName);
                 ChangeImage(q, SoundKnapsack[i].SoundImage);
-                    if (SoundKnapsack[i].SoundOrMonoUI == TYPE.MonoUI) Destroy(SoundKnapsack[i].My_Obj);
                     return;
             }
         }

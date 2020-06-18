@@ -71,10 +71,10 @@ public class Read_Bar_Manager : vMonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.F))
-        {
-            m_isSwitch = false;
-        }
+        //if(Input.GetKeyUp(KeyCode.F))
+        //{
+        //    m_isSwitch = false;
+        //}
     }
     void createSoundUI()
     {
