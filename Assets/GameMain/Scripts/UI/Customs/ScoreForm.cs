@@ -1,4 +1,5 @@
 ﻿using GameFramework.Event;
+using TMPro;
 using UnityEngine.UI;
 
 namespace GameName
@@ -9,7 +10,7 @@ namespace GameName
     /// </summary>
     public class ScoreForm : UGuiForm
     {
-        public Text scoreText;
+        public TextMeshProUGUI scoreText;
 
         /// <summary>
         /// 积分
@@ -38,7 +39,7 @@ namespace GameName
             {
                 m_ScoreTimer = 0;
                 m_Score += 1;
-                scoreText.text = "总分：" + m_Score;
+                scoreText.text = "Time : " + m_Score;
             }
         }
 

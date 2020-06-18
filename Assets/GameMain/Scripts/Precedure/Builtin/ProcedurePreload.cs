@@ -80,7 +80,7 @@ namespace GameName
                 }
             }
 
-            procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.Menu"));
+            procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.GameMenu"));
             ChangeState<ProcedureChangeScene>(procedureOwner);
         }
 

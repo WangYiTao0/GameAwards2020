@@ -90,7 +90,7 @@ namespace GameName
             {
                 return;
             }
-            //TODO： Change Scene
+            //TODO： Change Procedure by Scene ID
 
             switch (gotoSceneId)
             {
@@ -102,6 +102,9 @@ namespace GameName
                     break;
                 case 3:
                     ChangeState<ProcedureLevel1>(procedureOwner);
+                    break;
+                case 4:
+                    ChangeState<ProcedureLevel2>(procedureOwner);
                     break;
 
                 default:
