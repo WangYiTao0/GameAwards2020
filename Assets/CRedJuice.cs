@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Invector
 {
-    public class SoundType2 : SoundtypeManager
+    public class CRedJuice : SoundtypeManager
     {
         public string tagFilter = "Player";
-      
+
 
         private void Start()
         {
@@ -38,9 +40,14 @@ namespace Invector
 
         protected override void SoundAction()
         {
-            Debug.Log(" i am type2");
+            Debug.Log(" i am type mono1");
         }
-
+        private void OnDestroy()
+        {
+            Debug.Log("asdasdxx");
+            Lunpan.GetComponent<LunPanControl>().RemoveSoundForKnapsack(m_information.SoundID);
+            
+        }
 
 
     }

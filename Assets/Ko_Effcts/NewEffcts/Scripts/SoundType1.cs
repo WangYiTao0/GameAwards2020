@@ -5,8 +5,7 @@ namespace Invector
     public class SoundType1 : SoundtypeManager
     {
         public string tagFilter = "Player";
-        [SerializeField] SOUND_TYPE m_information;
-        [SerializeField] GameObject Lunpan;
+      
 
         private void Start()
         {

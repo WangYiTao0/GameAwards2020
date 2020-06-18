@@ -198,6 +198,7 @@ public class LunPanControl : SoundtypeManager
             {
                 AddonClickEnvent(q, SoundKnapsack[i].ActionName);
                 ChangeImage(q, SoundKnapsack[i].SoundImage);
+                    if (SoundKnapsack[i].SoundOrMonoUI == TYPE.MonoUI) Destroy(SoundKnapsack[i].My_Obj);
                     return;
             }
         }

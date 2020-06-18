@@ -7,8 +7,6 @@ namespace Invector
         public string tagFilter = "Player";
         //public bool isReceive;
         //public bool CanReceive;
-        [SerializeField] SOUND_TYPE m_information;
-        [SerializeField] GameObject Lunpan;
         //[System.Serializable]
         //public class aasd 
         //    {
