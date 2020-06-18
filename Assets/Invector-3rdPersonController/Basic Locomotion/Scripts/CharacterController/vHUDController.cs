@@ -97,6 +97,7 @@ namespace Invector.vCharacterController
             ChangeInputDisplay();
             ShowDamageSprite();
             FadeEffect();
+
         }
 
         public void ShowText(string message, float textTime = 2f, float fadeTime = 0.5f)
