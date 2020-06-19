@@ -7,7 +7,6 @@ public class Crashed : MonoBehaviour
     public GameObject obj;
     public GameObject objcrasjed;
     [SerializeField] GameObject mAttack;
-
     void Start()
     {
 
