@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class LunPanControl : SoundtypeManager
 {
-    public GameObject LunPan;
+    //public GameObject LunPan;
     [SerializeField] GameObject PressPos;// 按下的位置
     [SerializeField] float Speed; //旋转速度
     [SerializeField] float recoilSpeed;//后坐力速度
     [SerializeField] List<GameObject> SoundUI;//轮盘管理
-    [SerializeField] List<Sprite> SoundImage;
+    //[SerializeField] List<Sprite> SoundImage;
     [SerializeField] List<SOUND_TYPE> SoundKnapsack;
     [SerializeField] Sprite NoneImage;
     float CurrentrotAngle;
@@ -26,6 +26,7 @@ public class LunPanControl : SoundtypeManager
         nextAngle = 0;
         CountState = 10;
         LunPanInit();
+        this.transform.GetComponentInParent<LunPanManger>().LunpanOff();
     }
     // Update is called once per frame
     void Update()
@@ -86,7 +87,7 @@ public class LunPanControl : SoundtypeManager
             case 0:
                 //if (CurrentrotAngle < 270)
                 {
-                    LunPan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle + nextAngle));
+                    Lunpan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle + nextAngle));
 
                     nextAngle += Time.deltaTime * Speed;
 
@@ -102,7 +103,7 @@ public class LunPanControl : SoundtypeManager
             case 1:
                 //if (CurrentrotAngle >= -270)
                 {
-                    LunPan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle - nextAngle));
+                    Lunpan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle - nextAngle));
 
                     nextAngle += Time.deltaTime * Speed;
 
@@ -115,7 +116,7 @@ public class LunPanControl : SoundtypeManager
                 }
                 break;
             default:
-                LunPan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle));
+                Lunpan.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, CurrentrotAngle));
                 break;
         }
 

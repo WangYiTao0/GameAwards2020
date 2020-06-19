@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5360160880045376773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4320933887669078329}
   m_RootOrder: 0
@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 4807165584116801579}
   - component: {fileID: 2777596849601990687}
   - component: {fileID: 8204212544606748123}
+  - component: {fileID: 1901628452}
   m_Layer: 0
   m_Name: Effects_Sound_DonLoop
   m_TagString: Sound_Don
@@ -4841,7 +4842,7 @@ Transform:
   m_GameObject: {fileID: 8477823471775828180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.06, z: 28.68}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1364360125658540836}
   m_Father: {fileID: 0}
@@ -9639,13 +9640,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32231a376f8bc764ca608e63b688b598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCloseEvents: 0
-  openCloseWindow: 0
-  selectedToolbar: 0
-  value: 0
-  tagFilter: Player
-  isReceive: 0
   CanReceive: 0
+  m_information:
+    SoundID: 0
+    SoundImage: {fileID: 21300000, guid: 9fc7a448aaa37e845bbfb4c10f70b64a, type: 3}
+    SoundOrMonoUI: 0
+    My_Obj: {fileID: 0}
+  Lunpan: {fileID: 0}
+  player: {fileID: 0}
+  tagFilter: Player
 --- !u!135 &8204212544606748123
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9657,5 +9660,39 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.79
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1901628452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8477823471775828180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f131dd35d296fca4e90efc4ed717e48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  OffSet: {x: 0, y: 0, z: 0}
+  Icon: {fileID: 21300004, guid: b2ff3b281537fbc4d91af3e848afde5c, type: 3}
+  DeathIcon: {fileID: 0}
+  IconColor: {r: 1, g: 0, b: 0.630774, a: 0.9}
+  Size: 30
+  ShowCircleArea: 0
+  CircleAreaRadius: 10
+  CircleAreaColor: {r: 1, g: 1, b: 1, a: 0.9}
+  isInteractable: 1
+  interacableAction: 0
+  InfoItem: Info Icon here
+  keepTextAlwaysFacingUp: 0
+  OffScreen: 1
+  DestroyWithObject: 1
+  BorderOffScreen: 0.01
+  OffScreenSize: 10
+  isHoofdPunt: 0
+  RenderDelay: 0.3
+  m_Effect: 2
+  useCustomIconPrefab: 0
+  CustomIconPrefab: {fileID: 0}

@@ -36,6 +36,9 @@ TagManager:
   - PW - Nature
   - Synty Medium Farm
   - Synty Small Farm
+  - Sound_Don
+  - AttackAction
+  - DestroyAction
   layers:
   - Default
   - TransparentFX
