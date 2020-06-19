@@ -77,4 +77,14 @@ public class SoundAttcakControl : MonoBehaviour
     {
         ActionMode = mode;
     }
+    public void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("xxxxxxxxxxxxxx");
+        if (other.tag == "DestroyAction")
+        {
+            Debug.Log("aaaaaaaaaaaaaaa");
+            this.GetComponent<Rigidbody>().AddForce(Vector3.up * 5.0f);
+            Destroy(this.gameObject);
+        }
+    }
 }

@@ -43,7 +43,7 @@ public class QuestControl : MonoBehaviour
             else
             {
                 Destroy(this.gameObject);
-                GameObject.Find("vThirdPersonCamera").GetComponent<EdgeDetection>().enabled = false;
+                //GameObject.Find("vThirdPersonCamera").GetComponent<EdgeDetection>().enabled = false;
             }
         }
     }
