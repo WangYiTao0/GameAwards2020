@@ -17,6 +17,11 @@ namespace GameName
                 return false;
             }
         }
+        private bool isGameClear = false;
+        private void OnGameClear(object sender, GameEventArgs e)
+        {
+            isGameClear = true;
+        }
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {
             base.OnDestroy(procedureOwner);
@@ -27,6 +32,7 @@ namespace GameName
         {
             base.OnEnter(procedureOwner);
             GameEntry.Entity.ShowPlayer(new PlayerControllerData(GameEntry.Entity.GenerateSerialId(), 1));
+            GameEntry.Event.Subscribe(GotoNextSceneEventArgs.EventId, OnGameClear);
         }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
@@ -37,14 +43,21 @@ namespace GameName
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
+            GameEntry.Event.Unsubscribe(GotoNextSceneEventArgs.EventId, OnGameClear);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if (Input.GetKeyDown(KeyCode.A))
+            //if (Input.GetKeyDown(KeyCode.A))
+            //{
+            //    procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.GameMenu"));
+            //    ChangeState<ProcedureChangeScene>(procedureOwner);
+            //}
+            if (isGameClear)
             {
+                isGameClear = false;
                 procedureOwner.SetData<VarInt>(Constant.ProcedureData.NextSceneId, GameEntry.Config.GetInt("Scene.GameMenu"));
                 ChangeState<ProcedureChangeScene>(procedureOwner);
             }

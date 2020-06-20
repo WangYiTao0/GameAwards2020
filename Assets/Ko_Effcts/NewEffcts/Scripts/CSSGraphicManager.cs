@@ -21,7 +21,7 @@ namespace Effects
         // Start is called before the first frame update
         void Awake()
         {
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
         public void CreateEffects(TYPE2D type)
         {

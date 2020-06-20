@@ -6,11 +6,17 @@ using UnityEngine;
 public class MiniRocks : MonoBehaviour
 {
     [SerializeField] GameObject Mono1;
+    [SerializeField] GameObject mParticle;
+    [SerializeField] float Distance;
     [SerializeField] float Speed;
+    Vector3 Dir;
     // Start is called before the first frame update
     void Start()
     {
         Mono1 = GameObject.Find("WorldWall");
+        mParticle = GameObject.Find("Player").transform.Find("SoundAttack").gameObject;
+        if(mParticle!=null)
+        Dir = Vector3.Normalize(this.transform.position - mParticle.transform.position);
     }
 
     // Update is called once per frame
@@ -22,15 +28,12 @@ public class MiniRocks : MonoBehaviour
             Mono1.GetComponentInChildren<CMonoControy>();
             cs.Updatecheck(this.gameObject);
         }
-    }
-    private void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("xxxxxxxxxxxxxx");
-        if (other.tag == "AttackAction")
+        var dis = Vector3.Distance(mParticle.transform.position, this.transform.position);
+        if(dis<=Distance)
         {
-            Debug.Log("aaaaaaaaaaaaaaa");
-            this.GetComponent<Rigidbody>().AddForce(Vector3.up * Speed);
-            Destroy(this.gameObject);
+            this.GetComponent<Rigidbody>().AddForce(Dir * Speed);
         }
+       
     }
+
 }

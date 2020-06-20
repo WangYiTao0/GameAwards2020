@@ -36,8 +36,8 @@ namespace GameName
             base.OnEnter(procedureOwner);
             GameFrameworkLog.Info("ProcedureLevel1 OnEnter");
            // GameEntry.Event.Subscribe(OpenUIFormSuccessEventArgs.EventId, OnOpenUIFormSuccess);
-            GameEntry.UI.OpenUIForm(UIFormId.ScoreForm, this);
-            GameEntry.UI.OpenUIForm(UIFormId.PlayerHUDForm, this);
+            //GameEntry.UI.OpenUIForm(UIFormId.ScoreForm, this);
+            //GameEntry.UI.OpenUIForm(UIFormId.PlayerHUDForm, this);
 
             GameEntry.Entity.ShowPlayer(new PlayerControllerData(GameEntry.Entity.GenerateSerialId(),1));
             GameEntry.Entity.ShowStart(new StartData(GameEntry.Entity.GenerateSerialId(), 4));
