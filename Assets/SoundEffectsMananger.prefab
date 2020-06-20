@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f131dd35d296fca4e90efc4ed717e48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  Target: {fileID: 6369128492122548614}
   OffSet: {x: 0, y: 0, z: 0}
   Icon: {fileID: 21300004, guid: b2ff3b281537fbc4d91af3e848afde5c, type: 3}
   DeathIcon: {fileID: 0}
@@ -1884,40 +1884,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &144376769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8477823472712913988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f131dd35d296fca4e90efc4ed717e48b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  OffSet: {x: 0, y: 0, z: 0}
-  Icon: {fileID: 21300004, guid: b2ff3b281537fbc4d91af3e848afde5c, type: 3}
-  DeathIcon: {fileID: 0}
-  IconColor: {r: 1, g: 0, b: 0.630774, a: 0.9}
-  Size: 30
-  ShowCircleArea: 0
-  CircleAreaRadius: 10
-  CircleAreaColor: {r: 1, g: 1, b: 1, a: 0.9}
-  isInteractable: 1
-  interacableAction: 0
-  InfoItem: Info Icon here
-  keepTextAlwaysFacingUp: 0
-  OffScreen: 1
-  DestroyWithObject: 1
-  BorderOffScreen: 0.01
-  OffScreenSize: 10
-  isHoofdPunt: 0
-  RenderDelay: 0.3
-  m_Effect: 2
-  useCustomIconPrefab: 0
-  CustomIconPrefab: {fileID: 0}
 --- !u!1001 &1479498896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,7 +2012,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Effects_Sound_DonLoop (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8204212544606748123, guid: 35d1c044f04f1af41ade0160f2373844, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35d1c044f04f1af41ade0160f2373844, type: 3}
 --- !u!4 &4320933886996108713 stripped
 Transform:

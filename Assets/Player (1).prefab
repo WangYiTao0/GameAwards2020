@@ -2293,7 +2293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 1
-  selectedToolbar: 0
+  selectedToolbar: 4
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
@@ -2447,7 +2447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 1
-  selectedToolbar: 2
+  selectedToolbar: 0
   unlockCursorOnStart: 0
   showCursorOnStart: 0
   horizontalInput:
@@ -2605,7 +2605,18 @@ MonoBehaviour:
     inButtomTimer: 0
   OnLockCamera:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnUnlockCamera:
     m_PersistentCalls:
       m_Calls: []
@@ -2747,7 +2758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 0
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   Members:
   - transform: {fileID: 4229229191257957166}
@@ -2817,7 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c91cac344662340bbbedbdbed00328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCloseEvents: 0
+  openCloseEvents: 1
   openCloseWindow: 0
   selectedToolbar: 0
   tagsToFind:
@@ -2935,7 +2946,18 @@ MonoBehaviour:
         m_CallState: 2
   OnEndAnimation:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnLisenEventEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8667050145780199868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2949,7 +2971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 1
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   actionInput:
     useInput: 1
@@ -2998,7 +3020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openCloseEvents: 1
-  openCloseWindow: 1
+  openCloseWindow: 0
   selectedToolbar: 0
   actionInput:
     useInput: 1
@@ -11081,6 +11103,10 @@ GameObject:
   - component: {fileID: 8667050147773120773}
   - component: {fileID: 8667050146629199250}
   - component: {fileID: 8667050146629199255}
+  - component: {fileID: 1526418985}
+  - component: {fileID: 1526418986}
+  - component: {fileID: 1526418987}
+  - component: {fileID: 1526418988}
   m_Layer: 0
   m_Name: vThirdPersonCamera
   m_TagString: MainCamera
@@ -11309,6 +11335,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderSize: -2
+--- !u!114 &1526418985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667050147773120771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e6a2c603548d64c92fa24a3d77c7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  briSatConShader: {fileID: 4800000, guid: 55956c3b90f3d4c42bce22257722ab5f, type: 3}
+  brightness: 1.15
+  saturation: 3
+  contrast: 0.81
+--- !u!114 &1526418986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667050147773120771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5e0413074a5b49ad3a3a143bd8afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloomShader: {fileID: 4800000, guid: 1e8006e41f5fc6a4fb940db454758e7b, type: 3}
+  iterations: 3
+  blurSpread: 0.6
+  downSample: 2
+  luminanceThreshold: 0.6
+--- !u!114 &1526418987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667050147773120771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95602bb1e9bdcd4c96b429b51e717ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motionBlurShader: {fileID: 4800000, guid: 4b9e7654c11e6394981a73e1c6934fbd, type: 3}
+  blurSize: 0.002
+--- !u!114 &1526418988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667050147773120771}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352122880d2efeb4f89eb83185fbb1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edgeDetectShader: {fileID: 4800000, guid: 1a6856961c64b1147b22cc841fa865b8, type: 3}
+  edgesOnly: 1
+  edgeColor: {r: 0.01201493, g: 0.8490566, b: 0.16328159, a: 1}
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  sampleDistance: 1
+  sensitivityDepth: 1
+  sensitivityNormals: 1
+  DetectiveColor: {r: 0.4880193, g: 0.990566, b: 0.014017418, a: 1}
+  DetectiveRange: 50
+  DetectiveRangeWidth: 50
+  DetectiveRangeLimit: 0
+  DetectiveSpeed: 0.3
+  myDetectiveTexturePath: Assets/Ko_Effcts/NewEffcts/
+  myDetectiveTextureName: sona.png
+  myDetectiveTextureWidth: 10
+  myDetectiveTextureLength: 10
+  Player: {fileID: 1912750795763668643}
 --- !u!1 &8685002507669351558
 GameObject:
   m_ObjectHideFlags: 0

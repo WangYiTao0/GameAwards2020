@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4819158821053469752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070747207596751065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fceae7a5e93c94f97aef2a061858f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LunPan: {fileID: 6623520405379681069}
+  Presstarget: {fileID: 2935532303915535872}
 --- !u!1 &4819158820639358637
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,20 +114,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4819158821053469752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3070747207596751065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80fceae7a5e93c94f97aef2a061858f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LunPan: {fileID: 6623520405379681069}
-  Presstarget: {fileID: 2935532303915535872}
 --- !u!1001 &4819158820834474293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,6 +426,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ad3fc7e32da0db54983006e1f4034099,
         type: 3}
+    - target: {fileID: 1804377596961085851, guid: db46dd6bca66dff4d8fc38d642dd5a3c,
+        type: 3}
+      propertyPath: Lunpan
+      value: 
+      objectReference: {fileID: 6623520405379681069}
     - target: {fileID: 1804377597253465099, guid: db46dd6bca66dff4d8fc38d642dd5a3c,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -718,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 7664014383556481794, guid: db46dd6bca66dff4d8fc38d642dd5a3c,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.94274926
       objectReference: {fileID: 0}
     - target: {fileID: 7664014383556481794, guid: db46dd6bca66dff4d8fc38d642dd5a3c,
         type: 3}

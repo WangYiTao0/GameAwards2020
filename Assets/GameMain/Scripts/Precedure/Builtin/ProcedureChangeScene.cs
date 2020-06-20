@@ -106,6 +106,12 @@ namespace GameName
                 case 4:
                     ChangeState<ProcedureLevel2>(procedureOwner);
                     break;
+                case 5:
+                    ChangeState<ProcedureLevel3>(procedureOwner);
+                    break;
+                case 6:
+                    ChangeState<ProcedureLevel4>(procedureOwner);
+                    break;
 
                 default:
                     break;

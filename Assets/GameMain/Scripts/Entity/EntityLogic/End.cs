@@ -1,4 +1,5 @@
-﻿using GameFramework;
+﻿using System.Diagnostics;
+using GameFramework;
 
 namespace GameName
 {
@@ -25,8 +26,10 @@ namespace GameName
 
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
-            if(other.tag == "Player")
+            UnityEngine.Debug.Log("xxxx");
+            if (other.tag == "Player")
             {
+                UnityEngine.Debug.Log("xxxx2");
                 GameEntry.Event.Fire(this, ReferencePool.Acquire<GotoNextSceneEventArgs>());
             }
         }

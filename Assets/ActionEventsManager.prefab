@@ -47,4 +47,14 @@ MonoBehaviour:
   openCloseWindow: 0
   selectedToolbar: 0
   mAnimator: {fileID: 0}
+  mcEdge: {fileID: 0}
   StaminaRecovery: 1
+  CSItemIConControys:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isHaveSound: 0

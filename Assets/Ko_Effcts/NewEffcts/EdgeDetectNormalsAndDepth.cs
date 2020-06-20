@@ -1,31 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 public class EdgeDetectNormalsAndDepth : PostEffectsBase {
 
-	public Shader edgeDetectShader;
-	private Material edgeDetectMaterial = null;
-	public Material material {
-		get {
-			edgeDetectMaterial = CheckShaderAndCreateMaterial(edgeDetectShader, edgeDetectMaterial);
-			return edgeDetectMaterial;
-		}
-	}
+    public Shader edgeDetectShader;
+    private Material edgeDetectMaterial = null;
+    public Material material {
+        get {
+            edgeDetectMaterial = CheckShaderAndCreateMaterial(edgeDetectShader, edgeDetectMaterial);
+            return edgeDetectMaterial;
+        }
+    }
 
-	[Range(0.0f, 1.0f)]
-	public float edgesOnly = 0.0f;
+    [Range(0.0f, 1.0f)]
+    public float edgesOnly = 0.0f;
 
-	public Color edgeColor = Color.black;
+    public Color edgeColor = Color.black;
 
-	public Color backgroundColor = Color.white;
+    public Color backgroundColor = Color.white;
 
-	public float sampleDistance = 1.0f;
+    public float sampleDistance = 1.0f;
 
-	public float sensitivityDepth = 1.0f;
+    public float sensitivityDepth = 1.0f;
 
-	public float sensitivityNormals = 1.0f;
+    public float sensitivityNormals = 1.0f;
 
     public Color DetectiveColor = Color.white;
     [Range(0.0f, 1000.0f)]
@@ -78,14 +79,34 @@ public class EdgeDetectNormalsAndDepth : PostEffectsBase {
     }
 
     private float CurrentRange = 0.0f;
-    public  GameObject Player;
+    public GameObject Player;
     private Matrix4x4 CurrentViewProjectionInverseMatrix;
     void FixedUpdate()
     {
         CurrentRange += DetectiveSpeed;
-        if (CurrentRange >= DetectiveRange || CurrentRange <= DetectiveRangeLimit)
-            DetectiveSpeed *= -1.0f;
+        if (DetectiveSpeed > 0)
+        {
+            if (CurrentRange >= DetectiveRange)
+                CurrentRange = DetectiveRange;
+        }
+        else
+        {
+            if (CurrentRange <= DetectiveRangeLimit)
+            {
+                CurrentRange = DetectiveRangeLimit;
+                this.enabled = false;
+            }
+        }
     }
+  public void EdgeEnd()
+    {
+        DetectiveSpeed *= -1.0f;
+    }
+    public void EdgeStart()
+    {
+        DetectiveSpeed = Math.Abs(DetectiveSpeed);
+    }
+   
 
 	[ImageEffectOpaque]
 	void OnRenderImage (RenderTexture src, RenderTexture dest) {

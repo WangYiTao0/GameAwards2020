@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Invector.vCharacterController;
+using UnityEngine;
 
 namespace Invector
 {
@@ -30,12 +31,14 @@ namespace Invector
             //    this.transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
             //}
             Lunpan.GetComponent<LunPanControl>().AddSoundToKnapsack(m_information);
+            
         }
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.CompareTag(tagFilter))
             {
                 CanReceive = true;
+                GameObject.Find("ActionEventsManager").GetComponent<CActionEventsManager>().isHaveSound = true;
             }
         }
         private void OnTriggerExit(Collider other)
@@ -43,6 +46,7 @@ namespace Invector
             if (other.gameObject.CompareTag(tagFilter))
             {
                 CanReceive = false;
+                GameObject.Find("ActionEventsManager").GetComponent<CActionEventsManager>().isHaveSound = false;
             }
             Lunpan.GetComponent<LunPanControl>().RemoveSoundForKnapsack(m_information.SoundID);
         }
